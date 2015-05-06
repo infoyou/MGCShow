@@ -1,0 +1,168 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, code,
+del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,input,textarea,
+article,aside,audio,canvas,command,datalist,details,dialog,embed,figure,header,hgroup,keygen,mark,meter,nav,output,progress,rp,rt,ruby,section,source,time,video
+{ border:none;
+    margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%;
+    font-family: inherit; vertical-align: baseline; list-style:none;
+}
+.clearfix:after  {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.clearfix        {display: inline-block;}
+
+.clearfix        {display: block;}
+a:link, a:visited {	text-decoration:none;}
+a:hover, a:active {	text-decoration:none;}
+a{outline:none;*hide-focus:none;}
+textarea, input[type="text"],input[type="password"],input[type="button"],input[type="submit"]{ resize: none;outline: none;-webkit-appearance: none;}
+body,html{height:100%;background:none;}
+body{font-family: \5FAE\8F6F\96C5\9ED1 ,Arial, Helvetica, sans-serif;word-break: break-all;word-wrap: break-word;font-size:12px;color:#fff;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {-webkit-appearance : none !important;margin : 0 ;}
+input,a{-webkit-tap-highlight-color : rgba(0,0,0,0);}
+textarea, input[type="text"],input[type="password"],input[type="button"],input[type="submit"]{ resize: none;outline: none;-webkit-appearance: none;}
+
+
+.warpBg{ position:fixed;left:0; top:0; width:100%;height:100%;}
+.warpBg img{ display:block;height:100%;}
+.warpBg2{z-index:10;}
+.bgTop{ position:fixed;z-index:99;width:100%;}
+.wrapper{ font-size:14px;width:91%;padding:0 4.5%; position:relative;top:130px;z-index:2;padding-bottom:60px;}
+.opiTop{ border-bottom:2px solid #4a5c79;padding-bottom:15px;}
+.divInput a{ color:#fff;}
+.wrapper em,.opiConFir em{color:#f00;margin-right:3px;}
+.opiCon,.opiMan,.opiFoot{padding:20px 0; border-bottom:2px solid #4a5c79;}
+.divInput{ width:150px;height:25px; line-height:25x;margin-left:80px; background:#fff;padding:0 3px;}
+.divInput input,.InputDIv input{height:25px; line-height:25x; background:0;width:100%;}
+.opiCon span,.opiConter span,.opiConFir span{width:80px; float:left; height:35px;line-height:35px;}
+.opiCon li{height:35px !important;}
+.opiCon span{height:25px;line-height:25px;}
+.opiCon ul li a,.opiConter ul li a{height:30px; line-height:30x;padding:5px 0;}
+.opiConFir li{height:40px; line-height:30x;padding:5px 0;}
+.opiConDif li{height:40px; line-height:30x;padding:5px 0;}
+.opiMan h2{padding:10px 0;}
+.opiMan ul li{ float:left;margin:0 10px;position:relative;}
+.opiMan ul li:first-child{margin:0;}
+.opiMan ul .InputDIv{ float:left; width:150px;height:25px; line-height:25x;}
+.opiMan select{width:150px;margin-right:5px;height:35px; line-height:35px;
+    background:-webkit-linear-gradient(top, #fff 0%,#7F838A 100%); border-style:1px;}
+.opiMan .arror{position:absolute;top:1px;left:130px;}
+.opiMan .arror img{border-radius:0 5px 5px 0;}
+.opiMannDiffer .arror{ position:absolute;top:5px;left:121px;}
+.opiFoot .checxLabel{width:220px;display:inline-block;color:#fff;}
+.opiFoot li a{padding:20px 0;}
+.opiOne{padding:15px 0;}
+.opiOne ul{padding-top:10px;}
+.opiFooter{padding:15px 0;}
+.opiFooter li{padding:5px 0;}
+.checxLabel i{ background:url(clickqian.png) no-repeat;height:20px; width:20px; vertical-align:middle; display:inline-block;padding-right:5px; position:relative;top:-3px;}
+.checxLabel.cur i{ background:url(clickaft.png) no-repeat;}
+.footer{ position:fixed;bottom:0;height:40px; line-height:40px; background:#fff;width:100%;z-index:99;}
+.footer img{ position:relative;top:-10px;}
+
+
+.warpper{width:75%;position:relative;z-index:2;margin:0 auto;top:10%; background:url(bgblue.png) no-repeat; background-size:100% 100%; height:80%;}
+.shangBgg{ position:absolute;top:0;width:100%;height:65%;}
+.shangBg{text-align:center; position:relative;z-index:57;width:100%; height:74%;overflow:hidden;}
+.shangBg ul li{position:relative;}
+.shangBg ul li a{display:block;overflow:hidden;padding:5px 0;}
+.shangTop ul{padding-top:30px;}
+.shangTop ul li {position:relative;}
+.shangTop ul li span{ display:inline-block;width:13.5%;height:30px; line-height:30px;}
+.shangBg ul li a{border-top:1px solid #0a97bc;}
+.shangBg ul li span{ float:left;width:13.5%;height:30px; line-height:30px;padding-top:5px; }
+.shangBg ul li .citySpan{position:absolute;left:54%;text-align:center;display:none;}
+.shangBg ul li .citySpan b{display:block;width:60px;margin:0 auto;}
+.shangBg ul li .citySpan select{border:none;background:none;color:#fff;font-size:12px;text-align:center;width:60px;left:10px;margin:0 auto;position:relative;z-index:3;}
+.shangBg ul li .citySpan img{position:absolute;top:10px;left:50%;margin-left:20px;z-index:2;}
+.shangConter{margin:0 35px;overflow:hidden;padding-top:4px;}
+.shangFoter{ height:60px; line-height:60px; width:100%;}
+.shangFoter li{display:inline-block;width:33%;}
+.shangTop{margin:0 32px;}
+.shangTop li{ font-size:14px; font-weight:bolder;}
+.shangTop ul li span{ border:0; text-align:center;}
+.shangFote{ height:60px; line-height:60px; width:100%;}
+.shangFoter ul{margin:0 32px;text-align:center;}
+.shangFote li{ float:left;width:50%;}
+.shangTop ul li .citySpan{position:relative;}
+.shangTop ul li .citySpan select{font-size:14px;font-weight:700;padding-right:15px;position:relative;z-index:3;border:none;background:none;color:#fff;}
+.shangTop ul li .citySpan img{position:relative;left:-14px;z-index:2;}
+#warpperBg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:56;}
+
+.dengWrap{ position:relative;z-index:2;width:96%; margin:0 auto;color:#425968; font-size:14px; background:none;}
+.wrapTop{ height:50px; line-height:50px;}
+.wrapTop span{ float:left; width:15%; margin-top:10px;}
+.wrapTop ul{ float:right;}
+.wrapTop ul li{ float:left;}
+.wrapTop ul li a{ width:80px; text-align:center;color:#999; display:inline-block;}
+.wrapTop ul li a:hover{ color:#333;}
+.wrapMain{ margin-top:20px;width:100%; background:none;}
+.opiConter em{color:#425968;padding-right:5px;}
+.wrapMain h3{ color:#2d96cd;padding: 15px 20px;}
+.mainConter{ padding:10px 52px;width:70%;color:#000;}
+.divInpu{ width:150px;height:35px; line-height:35x;margin-left:80px;border:1px solid #ccc;padding:0 3px;}
+.divInpu input{height:25px; line-height:25px;width:100%; background:none;PADDING:5px 3px;}
+.opiConter,.opiConFir{padding:10px 0;margin:15px 0;border-top:1px solid #dceaf5;border-bottom:1px solid #dceaf5;}
+.divRadio{height:35px; line-height:35px; margin-left:60px;}
+.divRadio a{ display:inline-block;width:40px;}
+.wrapFoot{ margin:25px 0;}
+.wrapFoot li{float:left;width:33%; background:url(buttonbg.png) repeat-x;border-right:1px solid #75797d;}
+.wrapFoot li a{height:69px; line-height:69px;width:100%; text-align:center;display:inline-block;color:#fff;}
+.checxLabe,.checxLaDif{ display:inline-block;width:210px;color:#000;}
+.checxLabe i{ background:url(clickaf.png) no-repeat;height:18px; width:18px; vertical-align:middle; display:inline-block;padding-right:5px; position:relative;top:-2px;}
+.checxLabe.current i{ background:url(clickqi.png) no-repeat;}
+.clickNext ul{ width:22%; margin:0 auto;padding-bottom:30px;}
+.clickNext ul li{ float:left; padding:0 8px;}
+.opiEwm li{padding:10px 0; margin:0 auto;}
+
+.selectDiv{width:200px; position:relative; margin-left:100px;height:22px;}
+.slelectImg{border:none; width:200px; border-bottom:1px solid #99a6ae; }
+.opiDiffent li i{ font-style:normal;width:100px;float:left;}
+.opiDiffent li{height:30px; line-height:30px; padding:5px 0;}
+.wrapFoot li.curre a{ background:url(buttonbgg.png) repeat-x;}
+.deleteLi{position:absolute;top:0;right:-80px;display:block;background:#c06;color:#fff;height:100%;width:80px;line-height:46px;display:none;}
+
+
+.wrapperDif{ color:#58595b; font-size:14px;width:100%;position:relative;top:130px;z-index:2;padding-bottom:60px;}
+.wrapperDif h2{ font-weight:600;}
+.wrapperDif em{ color:#027a99;}
+.wrapperDif .opiTop,.wrapperDif .opiConMainDi,.wrapperDif .opiMandre,.wrapperDif .opiFootDif{padding:0 4.5%; }
+.opiConMainDi .divInput,.opiOne .divInput{height:25px; line-height:25x;margin-left:80px; background:url(slecBg.png) no-repeat; background-size:165px 25px;width:160px;padding:0 3px;}
+.checxLab{ display:inline-block;width:210px;color:#000;}
+.checxLab i{ background:url(drmcurr.png) no-repeat;height:18px; width:18px; vertical-align:middle; display:inline-block;padding-right:5px; position:relative;top:-2px;}
+.checxLab.current i{ background:url(drmcur.png) no-repeat;}
+.divRadi a{ width:60px;}
+.opiMandre select{ background:url(slecBg.png) no-repeat;background-size:165px 25px;width:165px; line-height:25px;height:25px; border:none;}
+.opiMandre .jinxiao select{background:url(slecBg.png) no-repeat;background-size:243px 25px;width:242px; }
+.opiMan .arrorDif{position:absolute;top:3px;left:142px;}
+.wrapperDif .checxLaDif{ color:#58595b; width:125px;}
+.wrapperDif .checxLaDif i{ background:url(checkon.png) no-repeat;height:18px; width:18px; vertical-align:middle; display:inline-block;padding-right:5px; position:relative;top:-2px;}
+.wrapperDif .checxLaDif.cur i{ background:url(check.png) no-repeat;}
+.wrapperDif .opiTop,.wrapperDif .opiCon,.wrapperDif .opiMan,.wrapperDif .opiFoot{ border-bottom:0;}
+.dramTit{ padding:10px 0;}
+.checxLayuan{color:#58595b; width:125px; display:inline-block;}
+.checxLayuan i{  background:url(drmcurr.png) no-repeat;height:18px; width:18px; vertical-align:middle; display:inline-block;padding-right:5px; position:relative;top:-2px;}
+.checxLayuan.current i{ background:url(drmcur.png) no-repeat;}
+.opiFooterDif h2,.opiFooterDif ul,.opiFooterDif .opiOne,.opiFooterDif ul,.checkDif ul,.checkDif h2{ display:inline-block;padding:0;}
+.opiFooterDif .checxLayuan{width:110px;}
+.inoutIn{height:25px; line-height:25x;background:url(slecBg.png) no-repeat; background-size:165px 25px;width:160px;padding:0 3px; display:inline-block;}
+.inoutIn input{ padding:5px 0; height:15px; line-height:15px; background:none; border:0;}
+.checkDif li{ position:relative;}
+.opiFooterDif .opiOne,.nextDre .opiOne{padding-top:5px;}
+.selectBox{position:relative; background:url(slecBg.png) no-repeat;background-size:170px 25px;width:170px; line-height:25px;height:25px; border:none;}
+.selectBox p{padding-left:3px;}
+.selectBox select{position:absolute;top:0;left:0;height:100%;width:100%;opacity:0;z-index:5;}
+.checkDif .arrorDif{display:block;height:100%;background:url(downn.png) no-repeat center right;background-size:16px;width:25px;position:absolute;top:0;right:4px;}
+
+.opiOne .writeInpu{  background:url(selecBg.png);height:25px; line-height:25x;margin-left:80px;background-size:165px 25px;width:160px;padding:0 3px;}
+.opiOne .writeInpu input,.writeI input{ background:none;height:0;}
+.writeI{ background:url(selecBg.png);height:25px; line-height:25x; background-size:165px 25px;width:160px;padding:0 3px; display:inline-block;}
+
+.checxLabeDif{width:220px;display:inline-block;color:#fff;}
+.checxLabeDif i{ background:url(checka.png) no-repeat;height:20px; width:20px; vertical-align:middle; display:inline-block;padding-right:5px; position:relative;top:-2px;}
+.checxLabeDif.cur i{ background:url(check01.png) no-repeat;}
+
+.shangFoter .uplateImg i{ background:url(button02.png) no-repeat; width:100%; display:inline-block;height:42px; background-size:94px 24px; vertical-align:middle; position:relative;z-index:55;}
+.shangFoter .uplateImg.curr i{background:url(button2.png) no-repeat;width:100%; display:inline-block;height:42px; background-size:94px 24px; vertical-align:middle; position:relative;}

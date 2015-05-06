@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv='X-UA-Compatible' content='IE=EmulateIE7' />
+<meta name="viewport" content="width=device-width,  maximum-scale=1.0, minimum-scale=1.0" />
+<title>DSFL</title>
+<link href="global.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	
+</script>
+</head>
+
+<body>
+    <div class="warpBg" id="warpBg">
+        <img src="bgg.jpg" width="100%">
+    </div>
+    <div class="warpper" id="warpper">
+        <div class="shangTop">
+        <ul>
+            <li><span>序号</span><span>VIP姓名</span><span>手机</span><span>PG代码</span>
+            
+           <span class="citySpan">城市</span><span>活动名称</span><span>上传</span></li>
+        </ul>
+    </div>
+    	<div class="shangBg">
+            <div class="shangConter" id="shangConter" style="position:relative;top:0;">
+            	<ul>
+                    
+                </ul>
+            </div>
+    </div>
+            <div class="shangFoter">
+            	<ul class="clearfix">
+                	<li><a href="javascript:void(0)" class="uplateImg"><i></i></a></li><li><a href="javascript:void(0)" onclick="saveCsv();"><img src="button03.png" /></a></li>
+                </ul>
+            </div>
+            <div id="updateUploadState" style="display:none;text-align:center;background:#fff;font-size:14px;color:#000;margin:30px 90px 0;height:36px;line-height:36px;">上传数据<span id="all"></span>条，成功<span id="success"></span>条，失败<span id="faild"></span>条。</div>
+        </div>
+    <script type="text/javascript" src="jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="global.js"></script>
+     <script type="text/javascript">
+     var records = new Array();//所有记录
+     var editflg = 0;
+     function funtest(x,editflg_){
+		
+		$('.uplateImg').bind('click',function(){
+			 	 uploaddata();
+				 $('.uplateImg').removeClass('curr'); 
+			 })
+			 
+    	 $('#updateUploadState').hide();
+    	 editflg = editflg_?editflg_:0;
+    	 $('#shangConter ul').html('');
+    	 records = new Array();
+    	 if(x=="") return; //如果等于空跳出
+    	 var liststr = decodeURIComponent(x); //定义变量  
+         var list = liststr.split('##');//以##来拆分
+         if(list.length==0) return; //如果等于0跳出
+         for(var i=0;i<list.length;i++){//记录
+             if(!list[i]) continue;
+             var qs = list[i].split('&');
+             if(qs.length==0) continue;
+             
+             var one_question = new Object();
+             
+             for(var j=0;j<qs.length;j++){//题目
+                 var q = qs[j].split('=');
+                 one_question[q[0]]=q[1];
+             }
+             one_question['str']=encodeURI(list[i]);
+             records[records.length]=one_question;
+         }         
+//         console.log(records);
+         var html = "";
+         // alert(records.length);
+         for(var i=0;i<records.length;i++){
+             var str =records[i].str;
+             var num = Number(i)+Number(1);
+             
+             var status = "否";
+             if(records[i].status==1){
+            	 status="是";
+             }
+             if(records[i].status==2){
+                 status="重";
+             }
+             //var qcity = getQCitySelect(records[i].qcity,records[i].status);
+             var qcity = '<b>'+records[i].qcity+'</b>';
+             
+             
+             var h="<li status='"+records[i].status+"' id='"+records[i].q_id+"' qmobile='"+records[i].qmobile+"' qpg='"+records[i].qpg+"' projectcode='"+records[i].projectcode+"' ><b class='deleteLi' onclick='deleteLi(this)'>删除</b><a  style='color:white;' href='javascript:void(0);' str = '"+str+"'><span>"+num+"</span><span>"+records[i].qname+"</span><span>"+records[i].qmobile+"</span><span>"+records[i].qpg+"</span><span>"+qcity+"</span><span>"+records[i].qeventname+"</span><span>"+status+"</span></a></li>";
+             html+=h;
+             
+             //alert(h);
+           }
+         $('.shangConter ul').html(html);
+         shangBgL();
+     }
+     
+     //funtest("q_id=1&projectcode=2015ecodriving&qname=Adam&qgender=男性&qmobile=13524010599&qemail=adam@g.cn&q5=是&q2=&q3=0-3月&q4=10万以下&q1=福特嘉年华&qdealerprovince=北京&qdealercity=北京市&qdealer=北京陆鼎汽车销售服务有限公司&qknowctcc=&qwhichcity=&qwhichyear=&qwhetherlook=&qwhetherinfo=&qfordinterested2=新嘉年华&qeventname=2014长安福特安全节能驾驶训练营客户调研问卷&qcity=北京&importdate=2015-03-11 16:44:50&qpg=f1&status=1");
+   
+     window.onload=function(){
+		//funtest('qname%3D%E4%B8%8D%26qgender%3D%E5%A5%B3%26qmobile%3D13333333333%26qemail%3D%26qdealerprovince%3D%26qdealercity%3D%26qdealer%3D%26importdate%3D2015-4-21%2017%3A39%3A19%26q1%3D%E7%A6%8F%E7%89%B9%E6%8E%A2%E9%99%A9%E8%80%85%26q2%3D%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q3%3D%E6%9C%89%E8%B4%AD%E8%BD%A6%E8%AE%A1%E5%88%92%E4%BD%86%E6%B2%A1%E5%86%B3%E5%AE%9A%E8%B4%AD%E4%B9%B0%E6%97%B6%E9%97%B4%26q4%3D35-45%E4%B8%87%26q5%3D%E7%A6%8F%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q6%3D%E5%90%A6%26q7%3D%E4%B8%8D%E6%84%BF%E6%84%8F%26q8%3D%E5%90%A6%26qpg%3DPg1%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D1%26q_id%3D1429609159%23%23qname%3D%E4%B8%8D%26qgender%3D%E5%A5%B3%26qmobile%3D13222222222%26qemail%3D%26qdealerprovince%3D%26qdealercity%3D%26qdealer%3D%26importdate%3D2015-4-21%2017%3A39%3A44%26q1%3D%E7%A6%8F%E7%89%B9%E6%96%B0%E7%A6%8F%E5%85%8B%E6%96%AF%26q2%3D%E7%89%B9%E6%96%B0%E8%92%99%E8%BF%AA%E6%AC%A7%26q3%3D7-12%E6%9C%88%26q4%3D45%E4%B8%87%E4%BB%A5%E4%B8%8A%26q5%3D%E7%A6%8F%E7%89%B9Mustang%26q6%3D%E5%90%A6%26q7%3D%E9%9D%9E%E5%B8%B8%E4%B8%8D%E6%84%BF%E6%84%8F%26q8%3D%E5%90%A6%26qpg%3DPg1%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D1%26q_id%3D1429609185%23%23qname%3D%E4%BD%86%26qgender%3D%E5%A5%B3%26qmobile%3D18666666666%26qemail%3D%26qdealerprovince%3D%26qdealercity%3D%26qdealer%3D%26importdate%3D2015-4-21%2017%3A40%3A12%26q1%3D%E7%A6%8F%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q2%3D%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q3%3D1%E5%B9%B4%E4%BB%A5%E4%B8%8A%26q4%3D35-45%E4%B8%87%26q5%3D%E7%A6%8F%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q6%3D%E5%90%A6%26q7%3D%E9%9D%9E%E5%B8%B8%E4%B8%8D%E6%84%BF%E6%84%8F%26q8%3D%E5%90%A6%26qpg%3DPg1%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D1%26q_id%3D1429609212%23%23qname%3D%E6%88%91%26qgender%3D%E7%94%B7%26qmobile%3D13333333333%26qemail%3D%26qdealerprovince%3D%E4%B8%8A%E6%B5%B7%26qdealercity%3D%E4%B8%8A%E6%B5%B7%26qdealer%3D%E4%B8%8A%E6%B5%B7%E6%A0%BC%E6%9E%97%E5%A8%81%26importdate%3D2015-4-21%2018%3A38%3A13%26q1%3D%E7%A6%8F%E7%89%B9%E9%94%90%E7%95%8C%EF%BC%88%E8%BF%9B%E5%8F%A3%EF%BC%89%26q2%3D%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q3%3D1%E5%B9%B4%E4%BB%A5%E4%B8%8A%26q4%3D35-45%E4%B8%87%26q5%3D%E7%A6%8F%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q6%3D%E6%98%AF%26q7%3D%E4%B8%8D%E6%84%BF%E6%84%8F%26q8%3D%E5%90%A6%26qpg%3Dpg28%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D1%26q_id%3D1429612694%23%23qname%3D%E6%88%91%26qgender%3D%E5%A5%B3%26qmobile%3D13377777777%26qemail%3D%26qdealerprovince%3D%E4%B8%8A%E6%B5%B7%26qdealercity%3D%E4%B8%8A%E6%B5%B7%26qdealer%3D%E4%B8%8A%E6%B5%B7%E4%B9%9D%E5%8D%8E%26importdate%3D2015-4-21%2019%3A34%3A50%26q1%3D%E7%A6%8F%E7%89%B9%E5%98%89%E5%B9%B4%E5%8D%8EST%26q2%3D%E7%89%B9%E5%98%89%E5%B9%B4%E5%8D%8EST%26q3%3D%E6%9C%89%E8%B4%AD%E8%BD%A6%E8%AE%A1%E5%88%92%E4%BD%86%E6%B2%A1%E5%86%B3%E5%AE%9A%E8%B4%AD%E4%B9%B0%E6%97%B6%E9%97%B4%26q4%3D35-45%E4%B8%87%26q5%3D%E7%A6%8F%E7%89%B9%E5%98%89%E5%B9%B4%E5%8D%8EST%26q6%3D%E6%98%AF%26q7%3D%E9%9D%9E%E5%B8%B8%E4%B8%8D%E6%84%BF%E6%84%8F%26q8%3D%E6%98%AF%26qpg%3Dpg1%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D1%26q_id%3D1429616090%23%23qname%3D%E6%88%91%26qgender%3D%E5%A5%B3%26qmobile%3D13377777777%26qemail%3D%26qdealerprovince%3D%E4%B8%8A%E6%B5%B7%26qdealercity%3D%E4%B8%8A%E6%B5%B7%26qdealer%3D%E4%B8%8A%E6%B5%B7%E4%B9%9D%E5%8D%8E%26importdate%3D2015-4-21%2019%3A35%3A22%26q1%3D%E5%85%A8%E6%96%B0%E7%A6%8F%E7%89%B9%E9%94%90%E7%95%8C%26q2%3D%E7%89%B9Mustang%26q3%3D%E6%9C%89%E8%B4%AD%E8%BD%A6%E8%AE%A1%E5%88%92%E4%BD%86%E6%B2%A1%E5%86%B3%E5%AE%9A%E8%B4%AD%E4%B9%B0%E6%97%B6%E9%97%B4%26q4%3D35-45%E4%B8%87%26q5%3D%E7%A6%8F%E7%89%B9Mustang%26q6%3D%E6%98%AF%26q7%3D%E9%9D%9E%E5%B8%B8%E6%84%BF%E6%84%8F%26q8%3D%E6%98%AF%26qpg%3Dpg1%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D2%26q_id%3D1429616122%23%23qname%3D%E6%88%91%26qgender%3D%E5%A5%B3%26qmobile%3D13377777777%26qemail%3D%26qdealerprovince%3D%26qdealercity%3D%26qdealer%3D%26importdate%3D2015-4-21%2019%3A36%3A2%26q1%3D%E7%A6%8F%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q2%3D%E7%89%B9%E6%96%B0%E5%98%89%E5%B9%B4%E5%8D%8E%26q3%3D1%E5%B9%B4%E4%BB%A5%E4%B8%8A%26q4%3D20-25%E4%B8%87%26q5%3D%E7%A6%8F%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q6%3D%E5%90%A6%26q7%3D%E9%9D%9E%E5%B8%B8%E6%84%BF%E6%84%8F%26q8%3D%E5%90%A6%26qpg%3Dpg1%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D1%26q_id%3D1429616163%23%23qname%3D%E4%BB%96%26qgender%3D%E7%94%B7%26qmobile%3D13545454444%26qemail%3D%26qdealerprovince%3D%E4%B8%8A%E6%B5%B7%26qdealercity%3D%E4%B8%8A%E6%B5%B7%26qdealer%3D%E4%B8%8A%E6%B5%B7%E4%B8%9C%E6%98%8C%26importdate%3D2015-4-22%206%3A57%3A9%26q1%3D%E7%A6%8F%E7%89%B9%E6%96%B0%E8%92%99%E8%BF%AA%E6%AC%A7%26q2%3D%E6%96%B0%E7%A6%8F%E7%89%B9%E9%94%90%E7%95%8C%26q3%3D%E6%9C%89%E8%B4%AD%E8%BD%A6%E8%AE%A1%E5%88%92%E4%BD%86%E6%B2%A1%E5%86%B3%E5%AE%9A%E8%B4%AD%E4%B9%B0%E6%97%B6%E9%97%B4%26q4%3D35-45%E4%B8%87%26q5%3D%E7%A6%8F%E7%89%B9Mustang%26q6%3D%E6%98%AF%26q7%3D%E9%9D%9E%E5%B8%B8%E4%B8%8D%E6%84%BF%E6%84%8F%26q8%3D%E5%90%A6%26qpg%3Dpg6%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D1%26q_id%3D1429657029%23%23qname%3D1%26qgender%3D%E5%A5%B3%26qmobile%3D13333333333%26qemail%3D%26qdealerprovince%3D%26qdealercity%3D%26qdealer%3D%26importdate%3D2015-4-23%2014%3A48%3A12%26q1%3D%E7%A6%8F%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q2%3D%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q3%3D%E6%9C%89%E8%B4%AD%E8%BD%A6%E8%AE%A1%E5%88%92%E4%BD%86%E6%B2%A1%E5%86%B3%E5%AE%9A%E8%B4%AD%E4%B9%B0%E6%97%B6%E9%97%B4%26q4%3D35-45%E4%B8%87%26q5%3D%E7%A6%8F%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q6%3D%E5%90%A6%26q7%3D%E9%9D%9E%E5%B8%B8%E4%B8%8D%E6%84%BF%E6%84%8F%26q8%3D%E5%90%A6%26qpg%3Dpg1%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D2%26q_id%3D1429771693%23%23qname%3D%E3%80%8A%EF%BC%82%26qgender%3D%E5%A5%B3%26qmobile%3D13423222222%26qemail%3D%26qdealerprovince%3D%26qdealercity%3D%26qdealer%3D%26importdate%3D2015-4-23%2015%3A1%3A11%26q1%3D%E7%A6%8F%E7%89%B9%E6%96%B0%E8%92%99%E8%BF%AA%E6%AC%A7%26q2%3D%E7%89%B9%E5%98%89%E5%B9%B4%E5%8D%8EST%26q3%3D%E5%B0%9A%E6%9C%AA%E6%9C%89%E8%B4%AD%E8%BD%A6%E8%AE%A1%E5%88%92%26q4%3D45%E4%B8%87%E4%BB%A5%E4%B8%8A%26q5%3D%E7%A6%8F%E7%89%B9%E5%98%89%E5%B9%B4%E5%8D%8EST%26q6%3D%E5%90%A6%26q7%3D%E4%B8%8D%E6%84%BF%E6%84%8F%26q8%3D%E5%90%A6%26qpg%3Dpg1%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D0%26q_id%3D1429772472%23%23qname%3D%E6%9D%8E%E5%A5%B3%E5%A3%AB%27%26qgender%3D%E5%A5%B3%26qmobile%3D13333333333%26qemail%3D%26qdealerprovince%3D%26qdealercity%3D%26qdealer%3D%26importdate%3D2015-4-23%2015%3A35%3A50%26q1%3D%E7%A6%8F%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q2%3D%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q3%3D%E6%9C%89%E8%B4%AD%E8%BD%A6%E8%AE%A1%E5%88%92%E4%BD%86%E6%B2%A1%E5%86%B3%E5%AE%9A%E8%B4%AD%E4%B9%B0%E6%97%B6%E9%97%B4%26q4%3D10-15%E4%B8%87%26q5%3D%E7%A6%8F%E7%89%B9%E7%A6%8F%E5%85%8B%E6%96%AFST%26q6%3D%E5%90%A6%26q7%3D%E9%9D%9E%E5%B8%B8%E4%B8%8D%E6%84%BF%E6%84%8F%26q8%3D%E5%90%A6%26qpg%3Dpg1%26qeventname%3D%E4%B8%8A%E6%B5%B7%E8%BD%A6%E5%B1%95%26qcity%3D%E4%B8%8A%E6%B5%B7%26projectcode%3D2015ShanghaiAutoShow%26status%3D0%26q_id%3D1429774552%23%23', '0');
+    	window.location.href = 'adminInitMethod://data?name=zengjing&password=123456'; 
+    	 return false;
+     }
+     
+     
+     function saveCsv(){
+    	 window.location.href = 'saveCsv://data?name=zengjing&password=123456';
+         return false;
+     }
+     //提交数据时，需要充html里获取城市数据----已经废弃，现在只需要传递信号给native
+     function uploaddata(){
+		 $('.uplateImg').unbind('click');
+		 $('.uplateImg').addClass('curr'); 
+    	 window.location.href = 'uploaddata://data?';
+         return false;
+     }
+     //更新数量
+     function updateUploadState(all,success,faild){ 
+	     alert(all);
+    	 $('#updateUploadState').show();
+    	 $('#all').val(all);
+    	 $('#success').val(success);
+    	 $('#faild').val(faild);
+    	 return false;
+     }
+     
+    
+    function stopPropagation(e) { 
+        e = e || window.event; 
+        if(e.stopPropagation) { //W3C阻止冒泡方法 
+            e.stopPropagation(); 
+        } else { 
+            e.cancelBubble = true; //IE阻止冒泡方法 
+        } 
+    }
+     
+    var numMove = 0;
+
+ 	document.getElementById('warpper').ontouchmove= function(event){
+ 	        if (event && event.preventDefault) {
+ 	               event.preventDefault(); 
+ 	          }                     
+ 	     };
+    document.getElementById('warpBg').ontouchstart= function(event){                        
+ 	   if (event && event.preventDefault) {
+ 	          event.preventDefault(); 
+ 	     }                    
+ 	};
+ 	document.getElementById('warpBg').ontouchmove= function(event){                        
+ 	        if (event && event.preventDefault) {
+ 	               event.preventDefault(); 
+ 	          }                     
+ 	     };
+ 	document.getElementById('warpBg').ontouchend= function(event){                        
+ 	   if (event && event.preventDefault) {
+ 	          event.preventDefault(); 
+ 	     }                     
+ 	};
+ 	function deleteLi(obj){
+ 		var liobj = $(obj).closest('li');
+ 		var q_id = liobj.attr('id');
+ 		var qmobile = liobj.attr('qmobile');
+ 		var qpg =liobj.attr('qpg');
+ 		var projectcode = liobj.attr('projectcode');
+		$(obj).closest('li').remove(); 
+		//funtest("q_id=1&projectcode=2015ecodriving&qname=Adam&qgender=男性&qmobile=13524010599&qemail=adam@g.cn&q5=是&q2=&q3=0-3月&q4=10万以下&q1=福特嘉年华&qdealerprovince=北京&qdealercity=北京市&qdealer=北京陆鼎汽车销售服务有限公司&qknowctcc=&qwhichcity=&qwhichyear=&qwhetherlook=&qwhetherinfo=&qfordinterested2=新嘉年华&qeventname=2014长安福特安全节能驾驶训练营客户调研问卷&qcity=北京&importdate=2015-03-11 16:44:50&qpg=f1&status=1");
+		   
+		window.location.href = 'optionData://data?q_id='+q_id+'&qmobile='+qmobile+'&qpg='+qpg+'&projectcode='+projectcode;
+		return ;	 
+ 	}
+    
+ 
+ 		
+ 		///手机滑动效果向上向下
+ 		var numStart,numStartY = 0;
+ 		var numChend,numMove,numMoveY = 0;
+ 		var moveed = false;
+        var timeEd = true;
+        function shangBgL(){
+            $('.shangBg ul li a').each(function(index,dom){                
+                //手指点击屏幕出发事件
+                dom.addEventListener('touchstart',function(e){	                
+	                var touchStart = e.targetTouches[0];
+	                numStart = touchStart.pageX;
+	                numStartY = touchStart.pageY;
+                })
+                //手指拖动事件
+                dom.addEventListener('touchmove', function(e) {
+               	   var touchMove = e.targetTouches[0];
+             	   numMove = touchMove.pageX;
+               	   numMoveY = touchMove.pageY;
+                }, false);
+                dom.addEventListener('touchend',function(e){
+		                    //模块上下滚动的效果
+		                    var shangConter_top =   Math.abs(parseInt($('.shangConter').css('top')));
+		                    var shangConter_h = $('.shangConter').height();
+		                    var shangBg_h = $('.shangBg').height();
+		                    if(numStartY-numMoveY>20){
+			                    shangConter_top = shangConter_top+300;
+			                    if(shangConter_top>=shangConter_h-shangBg_h){
+				                    if(shangConter_h<=shangBg_h){
+				                   	 shangConter_top = 0;
+				                    }else{
+				                    	shangConter_top = shangConter_h-shangBg_h;	
+				                    }                    
+			                    }
+			                    $('.shangConter').animate({'top':-(shangConter_top)+'px'},300);
+			                    return ;
+		                    }else if(numMoveY-numStartY>20){
+		                    	 shangConter_top = shangConter_top-300;
+		                   		 if(shangConter_top<=0){ shangConter_top = 0;}
+		                  	     $('.shangConter').animate({'top':-(shangConter_top)+'px'},300);	
+		                    return ;
+		                    }
+		                    //模块上下滚动的效果End                   
+		                    
+		                    var touchMove = e.changedTouches[0]; 
+		                    numChend = touchMove.pageX;
+		                    if(numStart-numChend>20){
+		                   		 if(timeEd!=true) return;
+			                    timeEd = false;
+			                    $('.shangBg ul li').animate({'left':'0'},200);	
+			                    $('.shangBg ul li').find('.deleteLi').css('display','block');
+			                    $(dom).closest('li').animate({'left':'-80px'},200,function(){timeEd = true;});
+			                    $(dom).closest('li').find('.deleteLi').css('display','block')
+			                    return ;
+		                    }else if(numChend-numStart>20){
+			                    if(timeEd!=true) return;
+			                    timeEd = false;
+			                    $(dom).closest('li').animate({'left':'0'},200,function(){timeEd = true;$(dom).closest('li').find('.deleteLi').css('display','block')});	         	 
+			                    
+			                    return ;
+		                    }else{
+		                    	if(editflg==1){
+		                    		window.location.href="index.html?"+$(this).attr('str');
+		                    	}
+		                   	 
+		                    }  
+                    })
+                
+                })
+        }
+     
+
+	
+
+    </script>
+</body>
+</html>

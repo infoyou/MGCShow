@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="activityPicker" destination="Scw-nQ-t35" id="59c-M1-o5v"/>
+                <outlet property="activityTxt" destination="q5m-wc-dk3" id="WH6-U5-lNd"/>
+                <outlet property="cityPicker" destination="d7L-2g-yO4" id="aJ0-3p-Juv"/>
+                <outlet property="cityTxt" destination="nJ2-L2-cgt" id="1et-4v-Z26"/>
+                <outlet property="loginBG" destination="9fh-i7-zR6" id="9lW-3v-J43"/>
+                <outlet property="nameTxt" destination="7qR-9c-QuF" id="Nyu-hT-Vap"/>
+                <outlet property="pickerBGView" destination="b4k-tI-sZJ" id="i9K-Xa-ET0"/>
+                <outlet property="pswdTxt" destination="4k6-gk-7Nr" id="LXg-k6-RHp"/>
+                <outlet property="view" destination="8ZU-gb-t7d" id="HyO-SV-biM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="8ZU-gb-t7d">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginBgMGC.png" translatesAutoresizingMaskIntoConstraints="NO" id="9fh-i7-zR6" userLabel="loginBgMGC.png">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4k6-gk-7Nr">
+                    <rect key="frame" x="486" y="227" width="155" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="EaG-og-zP8"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择活动名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q5m-wc-dk3">
+                    <rect key="frame" x="412" y="178" width="241" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="QcD-yh-8zF"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择城市" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nJ2-L2-cgt">
+                    <rect key="frame" x="724" y="227" width="111" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="XCZ-lj-kYB"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjL-RO-Axz">
+                    <rect key="frame" x="406" y="288" width="97" height="30"/>
+                    <state key="normal" backgroundImage="btnLogin.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="doLogin:" destination="-1" eventType="touchUpInside" id="zwl-Xb-g4V"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyx-2d-ZtQ">
+                    <rect key="frame" x="529" y="288" width="97" height="30"/>
+                    <state key="normal" image="btnReset.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="doReset:" destination="-1" eventType="touchUpInside" id="tm5-Xy-uIL"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4k-tI-sZJ">
+                    <rect key="frame" x="0.0" y="605" width="1024" height="162"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <pickerView tag="18" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Scw-nQ-t35">
+                    <rect key="frame" x="0.0" y="605" width="1024" height="162"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="1Yz-yb-cmh"/>
+                        <outlet property="delegate" destination="-1" id="Zj5-Sb-r7A"/>
+                    </connections>
+                </pickerView>
+                <pickerView tag="19" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d7L-2g-yO4">
+                    <rect key="frame" x="0.0" y="605" width="1024" height="162"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="iM5-Rr-R10"/>
+                        <outlet property="delegate" destination="-1" id="0OB-uR-vnJ"/>
+                    </connections>
+                </pickerView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7qR-9c-QuF">
+                    <rect key="frame" x="248" y="227" width="155" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="SOp-RV-HNW"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="608" y="281"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btnLogin.png" width="97" height="29"/>
+        <image name="btnReset.png" width="97" height="29"/>
+        <image name="loginBgMGC.png" width="1024" height="768"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

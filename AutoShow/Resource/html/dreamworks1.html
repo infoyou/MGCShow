@@ -1,0 +1,739 @@
+<!doctype html>
+<html>
+    <head>
+        <meta content="telephone=no" name="format-detection" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv='X-UA-Compatible' content='IE=EmulateIE7' />
+        <meta name="viewport" content="width=device-width,  maximum-scale=1.0, minimum-scale=1.0" />
+        <title>DSFL</title>
+        <link href="global.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+#wrapper {
+	position: absolute;
+	z-index: 1;
+
+	
+	left: 0;
+	width: 100%;
+
+	overflow: hidden;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+/*.wrapper{-webkit-overflow-scrolling: touch;overflow:hidden;overflow-y:scroll;}   */     
+</style> 
+      <script type="text/javascript" src="jquery-1.7.min.js"></script>
+<script type="text/javascript" src="d.js"></script>
+<script type="text/javascript" src="pcas.js"></script>  
+<script type="text/javascript" src="iscroll.js"></script> 
+<script type="text/javascript">
+
+var myScroll;
+
+function loaded () {
+	myScroll = new IScroll('#wrapper', {
+		
+		scrollbars: true,
+		mouseWheel: true,
+		interactiveScrollbars: true,
+		shrinkScrollbars: 'scale',
+		fadeScrollbars: true
+	});
+}
+window.onload=function(){
+	    $('.warpBg').css('height',$('body').height());
+      	 $('#wrapper').css({'height':$(window).height()-$('#warpBg2').height(), top:$('#warpBg2').height()} );
+		loaded()
+	}
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+</script>
+    </head>
+
+    <body style="overflow:hidden">
+        <div class="warpBg" id="warpBg" style="position:absolute;overflow:hidden;">
+            <img src="drambg.jpg" width="100%" style="display:block;">
+        </div>
+        <div class="warpBg2" id="warpBg2" style="position:absolute; left:0; top:0; width:100%;">
+          <img src="topBg.jpg" width="100%"/>
+        </div>
+        <Div id="wrapper">
+      		<div  id="scroller">
+              <div class="wrapper wrapperDif" style="top:5px; padding:0; padding-bottom:50px;">
+            <div class="opiTop"><img src="dramtit.png" /></div>
+            <div class="dramTit"><img src="dram01.png" /></div>
+            <div class="opiCon opiConDif opiConMainDi">
+                <ul class="clearfix">
+                    <li class="clearfix" style="float:left;width:350px;">
+                        <span><em>*</em>姓名：</span>
+                        <div class="divInput"><input type="text" id="qname"/></div>
+                    </li>
+                    <li class="clearfix" style="float:left;width:250px;">
+                        <span style="width:53px;"><em>*</em>性别：</span>
+                        <div class="divRadio divRadi" style="line-height:14px;">
+                            <a href="javascript:void(0)" class="checxLab qgender"  onClick="radioLabel(this)"><i></i>女士</a>
+                            <a href="javascript:void(0)" class="checxLab qgender" onClick="radioLabel(this)" style="padding-left:15px;"><i></i>先生</a>
+                        </div>
+                    </li>
+                    <div style="clear:both;"></div>
+                    <li class="clearfix" style="position: relative; width: 255px;">
+                        <span><em>*</em>手机：</span>
+                        <div class="divInput"><input type="number" id="qmobile"/><i style="position: absolute;right: 0;" id="aa"></i></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="opiMan opiMandre">
+                <h2><em>*</em>请选择经销商：</h2>
+                <ul class="clearfix">
+                    <li>
+                        <div class="arrorDif"><img src="downn.png"></div>
+                        <select id="f_province">
+                        </select>省（直辖市）
+                    </li>
+                    <li>
+                       <div class="arrorDif"><img src="downn.png"></div>
+                        <select id="f_city">          
+                        </select>市（区/县）
+                    </li>
+                    <li class="jinxiao">
+                    	<div class="arrorDif" style="left:220px"><img src="downn.png"></div>
+                        <select id="f_district">
+                        </select>经销商
+                    </li>
+                </ul>
+            </div>
+            <div class="opiFoot opiFootDif">
+                <div class="opiOne">
+                    <h2><em>*</em>在长安福特的现有车型中，您对下列哪款车型最感兴趣（单选）：</h2>
+                    <ul>
+                        <li id="q1">
+                            <a href="javascript:void(0)" class="checxLaDif interested" onClick="radioLabel(this)"><i></i>福特新嘉年华</a>
+                            <a href="javascript:void(0)" class="checxLaDif interested" onClick="radioLabel(this)"><i></i>福特经典福克斯</a>                            
+                            <a href="javascript:void(0)" class="checxLaDif interested" onClick="radioLabel(this)"><i></i>福特新福克斯</a><br>
+                            <a href="javascript:void(0)" class="checxLaDif interested" onClick="radioLabel(this)"><i></i>福特致胜</a>
+                            <a href="javascript:void(0)" class="checxLaDif interested" onClick="radioLabel(this)"><i></i>福特新蒙迪欧</a>
+                            <a href="javascript:void(0)" class="checxLaDif interested" onClick="radioLabel(this)" style="width:142px;"><i></i>福特麦柯斯S-MAX</a>
+                            <a href="javascript:void(0)" class="checxLaDif interested" onClick="radioLabel(this)"><i></i>福特翼搏</a>
+                            <a href="javascript:void(0)" class="checxLaDif interested" onClick="radioLabel(this)"><i></i>福特翼虎</a>
+                            <a href="javascript:void(0)" class="checxLaDif interested" onClick="radioLabel(this)"><i></i>福特福睿斯</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opiOne">
+                    <h2><em>*</em>您还对下列哪些长安福特车型感兴趣（可多选）: </h2>
+                    <ul>
+                        <li id="q2">
+                            <a href="javascript:void(0)" class="checxLaDif others" onClick="checkLabelFood(this)"><i></i>福特新嘉年华</a>
+                            <a href="javascript:void(0)" class="checxLaDif others" onClick="checkLabelFood(this)"><i></i>福特经典福克斯</a>                           
+                            <a href="javascript:void(0)" class="checxLaDif others" onClick="checkLabelFood(this)"><i></i>福特新福克斯</a><br>
+                            <a href="javascript:void(0)" class="checxLaDif others" onClick="checkLabelFood(this)"><i></i>福特致胜</a>
+                            <a href="javascript:void(0)" class="checxLaDif others" onClick="checkLabelFood(this)"><i></i>福特新蒙迪欧</a>
+                            <a href="javascript:void(0)" class="checxLaDif others" onClick="checkLabelFood(this)" style="width:142px;"><i></i>福特麦柯斯S-MAX</a>
+                            <a href="javascript:void(0)" class="checxLaDif others" onClick="checkLabelFood(this)"><i></i>福特翼搏</a>
+                            <a href="javascript:void(0)" class="checxLaDif others" onClick="checkLabelFood(this)"><i></i>福特翼虎</a>                           
+                            <a href="javascript:void(0)" class="checxLaDif others" onClick="checkLabelFood(this)"><i></i>福特福睿斯</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opiOne">
+                    <h2><em>*</em>您计划在何时（再）购车？</h2>
+                    <ul>
+                        <li id="q3">
+                            <a href="javascript:void(0)" class="checxLayuan buycar" onClick="radioLabel(this)"><i></i>0-3个月</a>
+                            <a href="javascript:void(0)" class="checxLayuan buycar" onClick="radioLabel(this)"><i></i>4-6个月</a>
+                            <a href="javascript:void(0)" class="checxLayuan buycar" onClick="radioLabel(this)"><i></i>7-12个月</a>
+                            <a href="javascript:void(0)" class="checxLayuan buycar" onClick="radioLabel(this)"><i></i>1年以上</a>
+                            <a href="javascript:void(0)" class="checxLayuan buycar" onClick="radioLabel(this)" style="width:205px;"><i></i>有购车计划但没决定购买时间</a>
+                            <a href="javascript:void(0)" class="checxLayuan buycar" onClick="radioLabel(this)"><i></i>尚未有购车计划</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opiOne">
+                    <h2><em>*</em>您的（再）购车预算是：</h2>
+                    <ul>
+                        <li id="q4">
+                            <a href="javascript:void(0)" class="checxLayuan budget" onClick="radioLabel(this)"><i></i>10万以下</a>
+                            <a href="javascript:void(0)" class="checxLayuan budget" onClick="radioLabel(this)"><i></i>10-15万</a>
+                            <a href="javascript:void(0)" class="checxLayuan budget" onClick="radioLabel(this)"><i></i>15-20万</a>
+                            <a href="javascript:void(0)" class="checxLayuan budget" onClick="radioLabel(this)"><i></i>20-25万</a>
+                            <a href="javascript:void(0)" class="checxLayuan budget" onClick="radioLabel(this)"><i></i>25万以上</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+         	<div class="dramTit"><img src="dram02.png" /></div>
+            <div class="opiFoot opiFootDif opiFooterDif">
+            	<div class="opiOne">
+                    <h2>1. 您的年龄在： </h2>
+                    <ul>
+                        <li id="q5">
+                            <a href="javascript:void(0)" class="checxLayuan eageimg" onClick="radioLabel(this)"><i></i>18岁以下</a>
+                            <a href="javascript:void(0)" class="checxLayuan eageimg" onClick="radioLabel(this)"><i></i>18-24岁</a>
+                            <a href="javascript:void(0)" class="checxLayuan eageimg" onClick="radioLabel(this)"><i></i>25-34岁</a>
+                            <a href="javascript:void(0)" class="checxLayuan eageimg" onClick="radioLabel(this)"><i></i>35-44岁</a>
+                            <a href="javascript:void(0)" class="checxLayuan eageimg" onClick="radioLabel(this)"><i></i>45-54岁</a>
+                            <a href="javascript:void(0)" class="checxLayuan eageimg" onClick="radioLabel(this)"><i></i>55-64岁</a>
+                            <a href="javascript:void(0)" class="checxLayuan eageimg" onClick="radioLabel(this)"><i></i>65岁以上</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opiOne">
+                    <h2>2.您已经拥有座驾了吗? </h2>
+                    <ul>
+                        <li id="q6">
+                            <a href="javascript:void(0)" class="checxLayuan zuojia" onClick="radioLabel(this)" markShowHiden="1" mark="regFood" ><i></i>是</a>
+                            <a href="javascript:void(0)" class="checxLayuan zuojia" onClick="radioLabel(this)" markShowHiden="0" mark="regFood" ><i></i>否</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opiOne regFood" style="display:block;">
+                    <h2>您的座驾是： </h2>
+                    <ul>
+                        <li id="q7">
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>长安福特</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>上海通用</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>上海大众</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>北京现代</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>东风日产</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>广汽丰田</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>东风本田</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>东风雪铁龙</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>奇瑞中国</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>东风悦达起亚</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>比亚迪汽车</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring" onClick="radioLabel(this)"><i></i>东风标致</a>
+                            <a href="javascript:void(0)" class="checxLayuan motoring writInp" onClick="radioLabel(this)" style="width:55px;"><i></i>其他</a>
+                            <a href="javascript:void(0)" class="writeInpu wirtIn" style="display:inline-block;margin:0;"><input type="text" id="qncur"/></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opiOne" style="display:block;">
+                    <h2>3. 再购车过程中，影响您购买的关键因素有哪些？（可多选）</h2>
+                    <ul>
+                        <li id="q8">
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>品牌声誉</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>价格</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>安全性</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>操控性</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>动力</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>外观</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>内饰</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>配置</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>油耗</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>内部空间</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>售后服务</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>折扣优惠</a>
+                            <a href="javascript:void(0)" class="checxLaDif anobug" onClick="checkLabelFood(this)"><i></i>智能科技</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dramTit"><img src="dram03.png" /></div>
+            <div class="opiFoot opiFootDif nextDre">
+            	<div class="opiOne">
+                    <h2><em>*</em>4. 您是通过以下何种渠道了解到本次活动的？（可多选）</h2>
+                    <ul>
+                        <li id="q9">
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>车展</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)" style="width:200px;"><i></i>以往的长安福特大篷车路演</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>户外广告</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>朋友推荐</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>短信/彩信</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>电视</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>杂志/报纸</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>互联网</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>经销商</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>电子邮件</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>广播</a>
+                            <a href="javascript:void(0)" class="checxLaDif activenew writInput" onClick="checkLabelFood(this)" style="width:55px;"><i></i>其他</a>
+                            <a href="javascript:void(0)" class="writeInpu wirtIn" style="display:inline-block;margin:0;"><input type="text" id="qactive"/></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opiOne" style="display:block;">
+                    <h2>5. 您对此次品牌体验日的总体评价如何？</h2>
+                    <ul>
+                        <li id="q10">
+                            <a href="javascript:void(0)" class="checxLayuan evaluat" onClick="radioLabel(this)"><i></i>满意</a>
+                            <a href="javascript:void(0)" class="checxLayuan evaluat" onClick="radioLabel(this)"><i></i>一般</a>
+                            <a href="javascript:void(0)" class="checxLayuan evaluat writInp" onClick="radioLabel(this)" style="width:50%;"><i></i>不满意，您不满意是因为：<div class="inoutIn"><input type="text" id="qno"/></div></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opiOne checkDif" style="padding:0;">
+                    <h2>6. 请用 1-10分评分标准评估您对福特品牌的印象？1分表示不满意，10分表示非常满意。</h2>
+                    <ul>
+                        <li id="q11">
+                        	<div class="selectBox">
+                                <p>请选择</p>
+                                <select class="memb">
+                                    <option>10</option>
+                                    <option>9</option>
+                                    <option>8</option>
+                                    <option>7</option>
+                                    <option>6</option>
+                                    <option>5</option>
+                                    <option>4</option>
+                                    <option>3</option>
+                                    <option>2</option>
+                                    <option>1</option>
+                                </select>
+                                <span class="arrorDif"></span>
+                            </div>
+                    	</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="opiFooter" style="padding:25px 4.5%;">
+                <ul>
+                    <li>欢迎访问 福特互联/手机网站:ford.com.cn 或 拨打24小时客服热线: 400-88-777-66</li>
+                </ul>
+            </div>
+            <input type="button" value="提交" style="width:100px; height:40px; background-color:gray;" onClick="submitAnswer()" />
+            <input type="hidden" id="status" value="0"/>
+            <input type="hidden" id="q_id" value=""/>
+            </div>
+        </div>
+        </Div>
+      
+
+<script type="text/javascript">
+	$(function(){
+			$('.selectBox select').change(function(){
+				$(this).siblings('p').html($(this).val());
+			});
+		})
+
+      /*    $(window).load(function(){
+               $('.warpBg').css('height',$('body').height()+'px');
+               $('.wrapper').css('height',($('body').height()-$('.wrapper').offset().top)+'px');
+              });  */  
+    /*    var minheight =  window.innerHeight * 95/100;
+                $(window).resize(function(){
+                    if( minheight > window.innerHeight){
+                       $('.warpBg').css('height',$('body').height()+'px');
+                       $('.wrapper').css('height',($('body').height()-$('.wrapper').offset().top-50)+'px');
+                       $('.warpBg').css('top',0);
+                    }else{
+                       $('.warpBg').css('height',$('body').height()+'px');
+                       $('.wrapper').css('height',($('body').height()-$('.wrapper').offset().top-50)+'px');
+                       $('.warpBg').css('top',0);
+                    }
+                }); */
+    //省市经销商三级联动
+    new PCAS("f_province","f_city","f_district"); 
+
+    function radioLabel(obj){
+		
+        $(obj).addClass('current').siblings().removeClass('current');
+		$(obj).addClass('cur').siblings().removeClass('cur');
+		var mark = $(obj).attr('mark');
+		var markShowHiden = $(obj).attr('markShowHiden');	
+		if(markShowHiden==1){$('.'+mark).show()}else if(markShowHiden==0){$('.'+mark).hide()}
+    }
+    function checkLabelFood(o){
+        if($(o).hasClass('cur')){
+            $(o).removeClass('cur');    
+        }else{
+            $(o).addClass('cur');       
+        }
+    }
+    $("#qmobile").keyup(function(){ 
+        var qmobile = $("#qmobile").val();
+        var myreg = /^((13[0-9]{1})|(14[7]{1})|(15[0,1,2,3,5,6,7,8,9]{1})|(17[0,6,7,8]{1})|(18[0-9]{1}))+\d{8}$/;
+        if (qmobile == '' || !myreg.test(qmobile)) {
+            $("#aa").html('<i style="color:red; font-size:20px;">×</i>');
+        }else{
+            $("#aa").html('<i style="color:green; font-size:20px;">√</i>');
+        }
+    });      
+    
+    function submitAnswer(){
+
+        //var projectcode = '2015ecodriving';
+        var qname = $("#qname").val();
+        var qgender ="";
+        $(".qgender").each(function(index, element) {
+            if($(this).hasClass('current')){
+                qgender = $(this).text();
+            }
+        })
+        var qmobile = $("#qmobile").val();
+       /* var aemail = $("#aemail").val();
+        var bemail = $("#bemail").val();
+        var qemail ='';
+        if(aemail!='' || bemail!=''){
+            qemail = aemail+'@'+bemail;
+            if(!IsEmail(qemail)){
+                window.location.href='showAlert://data?title=请正确填写邮箱！';
+                
+                $('.wrapper').animate({'scrollTop':'0'},500,function(){$(".aemail").focus();});
+                //$('body').scrollTop(0);
+                return false;
+            }
+        }*/
+        
+        
+        
+        var qdealerprovince = $("#f_province").val();
+        var qdealercity = $("#f_city").val();
+        var qdealer = $("#f_district").val();
+        var importdate = show();
+        //var qeventname = "2014长安福特安全节能驾驶训练营客户调研问卷";
+        var q1 = '';
+        $(".interested").each(function(index, element) {
+            if($(this).hasClass('cur')){
+                q1 = $(this).text();
+            }
+        })
+        var qfordinterested2 = '';
+        $(".others").each(function(index, element) {
+            if($(this).hasClass('cur')){
+                qfordinterested2 += $(this).text()+'，';
+            }
+        })
+        qfordinterested2 = qfordinterested2.substring(qfordinterested2.length-1,1);
+        var q2 = '';
+		
+        var q3 = '';
+        $(".buycar").each(function(index, element) {
+            if($(this).hasClass('current')){
+                q3 = $(this).text();
+            }
+        })	
+        var q4 = '';
+        $(".budget").each(function(index, element) {
+            if($(this).hasClass('current')){
+                q4 = $(this).text();
+            }
+        })
+		 var q5 = '';
+        $(".eageimg").each(function(index, element) {
+            if($(this).hasClass('current')){
+                q5 = $(this).text();
+            }
+        })
+		 var q6 = '';
+        $(".zuojia").each(function(index, element) {
+            if($(this).hasClass('current')){
+                q6 = $(this).text();
+            }
+        })
+		 var q7 = '';
+        $(".motoring").each(function(index, element) {
+            if($(this).hasClass('current')){
+                q7 = $(this).text();
+				var q7_1 = $("#qncur").val();
+                q7 += q7_1;
+            }
+        })
+		 var q8 = '';
+        $(".anobug").each(function(index, element) {
+            if($(this).hasClass('cur')){
+                q8 = $(this).text();
+            }
+        })
+		/*var q9 = '';
+        $(".activenew").each(function(index, element) {
+            if($(this).hasClass('cur')){
+                q9 = $(this).text();
+				var q9_1 = $("#qactive").val();
+                q9 += q9_1;
+            }
+        })*/
+		 var qfordinterested9 = '';
+        $(".activenew").each(function(index, element) {
+            if($(this).hasClass('cur')){
+                qfordinterested9 += $(this).text()+'，';
+				var q9_1 = $("#qactive").val();
+                qfordinterested9 += q9_1;
+            }
+        })
+        qfordinterested2 = qfordinterested2.substring(qfordinterested2.length-1,1);
+        var q2 = '';
+		
+		
+		
+		 var q10 = '';
+        $(".evaluat").each(function(index, element) {
+            if($(this).hasClass('current')){
+                q10 = $(this).text();
+				var q10_1 = $("#qno").val();
+                q10 += q10_1;
+            }
+        })
+		var q11 = $(".memb").val();
+		
+        if(qname == ''){
+            window.location.href='showAlert://data?title=请输入姓名！';
+            $('.wrapper').animate({'scrollTop':'0'},500,function(){$("#qname").focus();});
+            return false;
+        }
+        if(qgender == ''){
+            window.location.href='showAlert://data?title=请选择性别！';
+            $('.wrapper').animate({'scrollTop':'0'},500,function(){$(".qgender").focus();});
+            return false;
+        }
+        var myreg = /^((13[0-9]{1})|(14[7]{1})|(15[0,1,2,3,5,6,7,8,9]{1})|(17[0,6,7,8]{1})|(18[0-9]{1}))+\d{8}$/;
+        if(qmobile == '' || !myreg.test(qmobile)){
+            window.location.href='showAlert://data?title=请输入有效的手机号码！';
+            $('.wrapper').animate({'scrollTop':'0'},500,function(){$("#qmobile").focus();});
+            return false;
+        }
+		if(qdealerprovince == ''){
+            window.location.href='showAlert://data?title=请选择经销商';
+            $('.wrapper').animate({'scrollTop':'0'},500,function(){$("#f_province").focus();});
+            return false;
+        }
+		
+        if(q1 == ''){
+            window.location.href='showAlert://data?title=请选择最感兴趣车型！';
+            $('.wrapper').animate({'scrollTop':'100'},500,function(){$(".interested").focus();});
+            return false;
+        }
+        if(qfordinterested2 == ''){
+           window.location.href='showAlert://data?title=请选择感兴趣车型！';
+			$('.wrapper').animate({'scrollTop':'300'},500,function(){$(".others").focus();});
+           return false;
+       }
+        if(q3 == ''){
+            window.location.href='showAlert://data?title=请选择购车时间！';
+            $('.wrapper').animate({'scrollTop':'500'},500,function(){$(".buycar").focus();});
+            return false;
+        }
+        if(q4 == ''){
+            window.location.href='showAlert://data?title=请选择购车预算！';
+            $('.wrapper').animate({'scrollTop':'600'},500,function(){$(".budget").focus();});
+            return false;
+        }
+		 if(qfordinterested9 == ''){
+            window.location.href='showAlert://data?title=请选择您是通过何种渠道了解到本次活动的？';
+            $('.wrapper').animate({'scrollTop':'800'},500,function(){$(".activenew").focus();});
+            return false;
+        }
+		
+		
+        var str ='';
+        if($('#q_id').val()!=''){
+            str += 'q_id='+$('#q_id').val()+"&";
+        }
+            str += 'qname='+qname;
+            str += '&qgender='+qgender;  
+            str += '&qmobile='+qmobile
+            str += '&qdealerprovince='+qdealerprovince;
+            str += '&qdealercity='+qdealercity;
+            str += '&qdealer='+qdealer;
+            str += '&importdate='+importdate;
+            str += '&q1='+q1;  
+            str += '&q2='+qfordinterested2;
+            str += '&q3='+q3;
+            str += '&q4='+q4;
+            str += '&q5='+q5;
+			str += '&q6='+q6;
+			str += '&q7='+q7;
+			str += '&q8='+q8;
+			str += '&q9='+qfordinterested9;
+			str += '&q10='+q10;
+			str += '&q11='+q11;
+			//alert(str);
+            if($('#status').val()==0){
+                window.location.href='uploadMethod://data?'+str;
+                $('.wrapper').animate({'scrollTop':'0'},1000);
+                $('#qname').val('');
+                $('.qgender').removeClass('current');
+                $('#qmobile').val('');
+                $("#aa").html('');
+                $('#f_province').val('--省份--');
+                $('#f_province').change();
+                $('#q1 a').removeClass('cur');
+                $('#q2 a').removeClass('cur');
+                $('#q3 a').removeClass('current');
+                $('#q4 a').removeClass('current');
+                $('#q5 a').removeClass('current');
+				$('#q6 a').removeClass('current');
+				$('#q7 a').removeClass('current');
+				$('#q8 a').removeClass('cur');
+				$('#q9 a').removeClass('cur');
+				$('#q10 a').removeClass('current');
+				$('#qno').val('');
+				$('#qncur').val('');
+				$('#qactive').val('');
+				$(".selectBox p").empty().append("请选择");
+            }
+            
+    }
+    
+    
+    $(function(){
+        var c1 = window.location.href.split("?");
+        if(c1.length<=1){
+            return;
+        }
+        c1=decodeURI(c1[1]);
+        var qs =c1.split('&');
+        var question = new Object();
+        for(var j=0;j<qs.length;j++){//题目
+            var q = qs[j].split('=');
+            question[q[0]]=q[1];
+        }
+        $("#qname").val(question.qname);
+        if(question.qgender == '男'){
+            $(".boy").addClass('cur');  
+        }else{
+            $(".girl").addClass('cur'); 
+        }
+        
+        $("#qmobile").val(question.qmobile);
+       
+        $("#f_province").val(question.qdealerprovince);
+        
+        $("#f_province").change();
+        
+        
+        $("#f_city").val(question.qdealercity);
+        
+        $("#f_city").change();
+        
+        $("#f_district").val(question.qdealer);
+        
+        if(question.q1 !=""){
+            $('#q1 a').each(function(){
+                if($(this).text()==question.q1){
+                    $(this).addClass('cur');   
+                }
+            })
+        }
+        
+        if(question.qfordinterested2!=""){
+            var q2s=question.qfordinterested2.split(',');
+            $('#q2 a').each(function(){
+                for(var i=0;i<q2s.length;i++){
+                    if($(this).text()==q2s[i]){
+                        $(this).addClass('cur');   
+                    }
+                }
+            })
+        }
+        if(question.q3 !=""){
+            $('#q3 a').each(function(){
+                if($(this).text()==question.q3){
+                    $(this).addClass('cur');   
+                }
+            })
+        }
+        if(question.q4 !=""){
+            $('#q4 a').each(function(){
+                if($(this).text()==question.q4){
+                    $(this).addClass('cur'); 
+                }
+            })
+        }
+        if(question.q5 !=""){
+            $('#q5 a').each(function(){
+                if($(this).text()==question.q5){
+                    $(this).addClass('current');   
+                }
+            })
+        }
+		if(question.q6 !=""){
+            $('#q6 a').each(function(){
+                if($(this).text()==question.q6){
+                    $(this).addClass('current'); 
+                }
+            })
+        }
+		if(question.q7 !=""){
+            $('#q7 a').each(function(){
+                if($(this).text()==question.q7){
+                    $(this).addClass('current'); 
+                }
+            })
+        }
+		if(question.q8 !=""){
+            $('#q8 a').each(function(){
+                if($(this).text()==question.q8){
+                    $(this).addClass('cur'); 
+                }
+            })
+        }
+		if(question.q9 !=""){
+            $('#q9 a').each(function(){
+                if($(this).text()==question.q9){
+                    $(this).addClass('cur'); 
+                }
+            })
+        }
+		if(question.q10 !=""){
+            $('#q10 a').each(function(){
+                if($(this).text()==question.q10){
+                    $(this).addClass('current'); 
+                }
+            })
+        }
+        $('.memb').val(question.memb);
+        $('#status').val(question.status);
+        $('#q_id').val(question.q_id);
+            
+   })
+    
+    
+    function show(){
+        var mydate = new Date();
+        var str = "" + mydate.getFullYear() + "-";
+            str += (mydate.getMonth()+1) + "-";
+            str += mydate.getDate()+ " ";
+            str += mydate.getHours()+ ":"; 
+            str += mydate.getMinutes()+ ":"; 
+            str += mydate.getSeconds(); 
+        return str;
+    }
+    function IsEmail(strg) {
+        var patrn = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        if (!patrn.exec(strg))
+            return false;
+        return true
+    }
+    
+	$('.writInput').click(function(){
+		 if($(this).hasClass('cur')){
+               $(this).siblings('a.wirtIn').addClass('divInput').removeClass('writeInpu');
+            }else{
+				$(this).siblings('a.wirtIn').removeClass('divInput').addClass('writeInpu');
+				}
+		
+		})
+	
+	$('.writInp').click(function(){
+		 if($(this).hasClass('cur')){
+               $(this).siblings('a.wirtIn').addClass('divInput').removeClass('writeInpu');
+            }else{
+				$(this).siblings('a.wirtIn').removeClass('divInput').addClass('writeInpu');
+				}
+		})
+	
+	
+</script> 
+</body>
+</html>

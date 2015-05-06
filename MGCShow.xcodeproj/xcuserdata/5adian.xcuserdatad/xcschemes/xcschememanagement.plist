@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>BrandCarShow.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>CTCC.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>DSFL.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>MGCShow.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>081218AE1AF75C37009412F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>08121A6E1AF76082009412F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>08121E291AF78262009412F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>08EB24291AAD39560075BCC4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>08EB24451AAD39560075BCC4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

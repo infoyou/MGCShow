@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FB63450D-8086-4505-B890-E31BF3E1AEFA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DSFL</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FC212D55C503D99D6A49B8D87CE61EA11F1DA57C</key>
+		<string>https://github.com/infoyou/DSFL.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DSFL.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FC212D55C503D99D6A49B8D87CE61EA11F1DA57C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/infoyou/DSFL.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FC212D55C503D99D6A49B8D87CE61EA11F1DA57C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FC212D55C503D99D6A49B8D87CE61EA11F1DA57C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DSFL</string>
+		</dict>
+	</array>
+</dict>
+</plist>
