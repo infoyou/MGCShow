@@ -34,7 +34,7 @@
     </div>
             <div class="shangFoter">
             	<ul class="clearfix">
-                	<li><a href="javascript:void(0)" class="uplateImg"><i></i></a></li><li><a href="javascript:void(0)" onclick="saveCsv();"><img src="button03.png" /></a></li>
+                	<li><a href="javascript:void(0)" class="uplateImg" onclick="uploaddata()"><i></i></a></li><li><a href="javascript:void(0)" onclick="saveCsv();"><img src="button03.png" /></a></li>
                 </ul>
             </div>
             <div id="updateUploadState" style="display:none;text-align:center;background:#fff;font-size:14px;color:#000;margin:30px 90px 0;height:36px;line-height:36px;">上传数据<span id="all"></span>条，成功<span id="success"></span>条，失败<span id="faild"></span>条。</div>
@@ -44,13 +44,7 @@
      <script type="text/javascript">
      var records = new Array();//所有记录
      var editflg = 0;
-     function funtest(x,editflg_){
-		
-		$('.uplateImg').bind('click',function(){
-			 	 uploaddata();
-				 $('.uplateImg').removeClass('curr'); 
-			 })
-			 
+     function funtest(x,editflg_){	 
     	 $('#updateUploadState').hide();
     	 editflg = editflg_?editflg_:0;
     	 $('#shangConter ul').html('');
@@ -115,8 +109,6 @@
      }
      //提交数据时，需要充html里获取城市数据----已经废弃，现在只需要传递信号给native
      function uploaddata(){
-		 $('.uplateImg').unbind('click');
-		 $('.uplateImg').addClass('curr'); 
     	 window.location.href = 'uploaddata://data?';
          return false;
      }

@@ -663,7 +663,7 @@ typedef enum {
         }
         NSInteger number = [numberStr integerValue];
         
-        if (number >=1 && number <= 8) {
+        if (number >=1 && number <= 10) {
             
             if ([pswdTxt.text isEqualToString:@"123456"]) {
                 return YES;

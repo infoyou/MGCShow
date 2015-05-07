@@ -104,13 +104,6 @@
         // 提交数据
         if([[url host] isEqualToString:@"data"])
         {
-            // 从html5获取数据方式
-            // NSString *showString = [[url resourceSpecifier] substringFromIndex:7];
-            // if (showString.length > 7) {
-            //
-            //     NSString *parmString = [showString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            //     NSArray *needUploadDataArray = [parmString componentsSeparatedByString:@"##"];
-            // }
             
             // 直接从Sqlite里面取数据
             NSString *parmString = [[FMDBConnection instance] getNeedSubmitSurveyResult];
@@ -346,8 +339,10 @@
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     
-    [self hideProgressView];
+//    [self hideProgressView];
     
+    errorUploadNum ++;
+    [self updateProgress];
     DLog(@"数据接受失败，失败原因：%@", [error localizedDescription]);
 }
 

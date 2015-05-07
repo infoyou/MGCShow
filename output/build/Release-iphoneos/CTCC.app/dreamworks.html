@@ -149,7 +149,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="opiOne regFood" style="display:block;">
+                <div class="opiOne regFood" style="display:none;">
                     <h2>您的座驾是： </h2>
                     <ul>
                         <li id="q7">
@@ -166,7 +166,7 @@
                             <a href="javascript:void(0)" class="checxLayuan motoring wpe" onClick="radioLabel(this)"><i></i>比亚迪汽车</a>
                             <a href="javascript:void(0)" class="checxLayuan motoring wpe" onClick="radioLabel(this)"><i></i>东风标致</a>
                             <a href="javascript:void(0)" class="checxLayuan motoring writInput" onClick="radioLabel(this)" style="width:55px;"><i></i>其他</a>
-                            <a href="javascript:void(0)" class="writeInpu wirtIn" style="display:inline-block;margin:0;"><input type="text" id="qncur"/></a>
+                            <a href="javascript:void(0)" class="writeInpu wirtIn" style="display:none;margin:0;"><input type="text" id="qncur"/></a>
                         </li>
                     </ul>
                 </div>
@@ -209,7 +209,7 @@
                             <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>电子邮件</a>
                             <a href="javascript:void(0)" class="checxLaDif activenew" onClick="checkLabelFood(this)"><i></i>广播</a>
                             <a href="javascript:void(0)" class="checxLaDif activenew wrDif" onClick="checkLabelFood(this)" style="width:55px;"><i></i>其他</a>
-                            <a href="javascript:void(0)" class="writeInpu wirtIn" style="display:inline-block;margin:0;"><input type="text" id="qactive"/></a>
+                            <a href="javascript:void(0)" class="writeInpu wirtIn" style="display:none;margin:0;"><input type="text" id="qactive"/></a>
                         </li>
                     </ul>
                 </div>
@@ -219,7 +219,7 @@
                         <li id="q10">
                             <a href="javascript:void(0)" class="checxLayuan evaluat woe" onClick="radioLabel(this)"><i></i>满意</a>
                             <a href="javascript:void(0)" class="checxLayuan evaluat woe" onClick="radioLabel(this)"><i></i>一般</a>
-                            <a href="javascript:void(0)" class="checxLayuan evaluat wrdifthr" onClick="radioLabel(this)" style="width:50%;"><i></i>不满意，您不满意是因为：<div class="writeI wirtIn"><input type="text" id="qno"/></div></a>
+                            <a href="javascript:void(0)" class="checxLayuan evaluat wrdifthr" onClick="radioLabel(this)" style="width:50%;"><i></i>不满意，您不满意是因为：<div class="writeI wirtIn" style="display:none;"><input type="text" id="qno"/></div></a>
                         </li>
                     </ul>
                 </div>
@@ -518,7 +518,7 @@
 		 }
 		if(q7_back.indexOf("其他")>=0) {
 		 qncur = $("#qncur").val();
-		 if(!isChinaOrNumbOrLett($.trim(qncur))){
+		 if($.trim(qncur)!=''&&!isChinaOrNumbOrLett($.trim(qncur))){
 			// alert("座驾只能输入中文，英文，字母，下划线！");
 			 window.location.href='showAlert://data?title=座驾只能输入中文，英文，字母，下划线！';
 			 return false;
@@ -527,7 +527,7 @@
 		
 		 if(q9_back.indexOf("其他")>=0){
 				 qactive = $("#qactive").val();
-				 if(!isChinaOrNumbOrLett($.trim(qactive))){
+				 if($.trim(qactive)!=''&&!isChinaOrNumbOrLett($.trim(qactive))){
 					// alert("活动渠道只能输入中文，英文，字母，下划线！");
 					 window.location.href='showAlert://data?title=活动渠道只能输入中文，英文，字母，下划线！';
 					 return false;
@@ -536,7 +536,7 @@
 		 
 		 if(q10_back == "不满意，您不满意是因为："){
 			 qno = $("#qno").val();
-			 if(!isChinaOrNumbOrLett($.trim(qno))){
+			 if($.trim(qno)!=''&&!isChinaOrNumbOrLett($.trim(qno))){
 				// alert("评价只能输入中文，英文，字母，下划线！");
 				 window.location.href='showAlert://data?title=评价只能输入中文，英文，字母，下划线！';
 				 return false;
@@ -617,21 +617,24 @@
     $('.wrDif').click(function(){
 		 if($(this).hasClass('cur')){
                $(this).siblings('a.wirtIn').addClass('divInput').removeClass('writeInpu');
-			   $(this).siblings('.wirtIn').show();
+			   //$(this).siblings('.wirtIn').show();
+			   $(this).siblings('.wirtIn').css('display','inline-block');
 			   //$('#qactive').val('');
             }else{
 				$(this).siblings('a.wirtIn').removeClass('divInput').addClass('writeInpu');
+				$(this).siblings('.wirtIn').hide();
 				}
 		})
 		
 	$('.writInput').click(function(){
 		 if($(this).hasClass('cur')){
                $(this).siblings('a.wirtIn').addClass('divInput').removeClass('writeInpu');
-			   $(this).siblings('.wirtIn').show();
-			  
+			   //$(this).siblings('.wirtIn').show();
+			   $(this).siblings('.wirtIn').css('display','inline-block');
 			   //$('#qncur').val('');
             }else{
 				$(this).siblings('a.wirtIn').removeClass('divInput').addClass('writeInpu');
+				$(this).siblings('.wirtIn').hide();
 				}
 		 
 		})
@@ -647,6 +650,7 @@
 			    //$('#qno').val('');
             }else{
 				$(this).find('.wirtIn').removeClass('inoutIn').addClass('writeI');
+				$(this).find('.wirtIn').hide();
 				}
 		
 		})
