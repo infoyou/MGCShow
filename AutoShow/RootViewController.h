@@ -21,7 +21,7 @@
 
 @property (nonatomic, retain) NSMutableData *myData;
 
-- (BOOL) isConnectionAvailable;
+- (BOOL) isConnectionAvailable:(BOOL)needPrompt;
 
 @end
 

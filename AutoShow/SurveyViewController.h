@@ -13,5 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bottomImgView;
+
 @end
 

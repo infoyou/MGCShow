@@ -21,6 +21,15 @@
     [webView loadRequest:requestObjc];
     
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // 项目部分
+#if CarShowType == 12
+    // 梦工场
+    self.bottomImgView.image = [UIImage imageNamed:@"questionBottomBlue.png"];
+#else
+    self.bottomImgView.image = [UIImage imageNamed:@"questionBottomBlack.png"];
+#endif
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +81,14 @@
             
             NSString *parmString = [NSString stringWithFormat:@"%@&qpg=%@&qeventname=%@&qcity=%@&projectcode=%@", str, [AppManager instance].qpg, [AppManager instance].qeventname, [AppManager instance].qcity, PROJECT_CODE];
            
-            [self sendHTTPGet:parmString];
+            
+            if (![self isConnectionAvailable:NO]) {
+                // 本地保存
+                [self saveToDB:parmString];
+            } else {
+                // 上传
+                [self sendHTTPGet:parmString];
+            }
         }
         
         return NO;
@@ -123,6 +139,44 @@
 {
     
     [webView stringByEvaluatingJavaScriptFromString:@"submitAnswer()"];
+}
+
+- (void)saveToDB:(NSString *)parmString
+{
+    // save result
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval a=[dat timeIntervalSince1970];
+    NSString *dataId = [NSString stringWithFormat:@"%.0f", a];
+    
+    // 解析参数
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *param in [parmString componentsSeparatedByString:@"&"]) {
+        NSArray *elts = [param componentsSeparatedByString:@"="];
+        if([elts count] < 2) continue;
+        [params setObject:[elts objectAtIndex:1] forKey:[elts objectAtIndex:0]];
+    }
+    
+    // 存数据库
+    SurveyObject *surveyObject = [[SurveyObject alloc] init];
+    surveyObject.surveyId = dataId;
+    surveyObject.projectcode = PROJECT_CODE;
+    surveyObject.phone = [params objectForKey:@"qmobile"];
+    surveyObject.user = [params objectForKey:@"qpg"];
+    surveyObject.city = [params objectForKey:@"qcity"];
+    surveyObject.remark = parmString;
+    surveyObject.status = @(0);
+    [[FMDBConnection instance] insertSurveyObjectDB:surveyObject];
+    
+    // 提示
+    NSString *promptStr = @"";
+    
+    [[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@\n数据保存本地.", promptStr]
+                                message:@""
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil
+      ] show];
+    
 }
 
 - (void) sendHTTPGet:(NSString *)parmString

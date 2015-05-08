@@ -75,7 +75,7 @@
 
 #pragma mark
 #pragma mark - is Connection Available
-- (BOOL) isConnectionAvailable
+- (BOOL) isConnectionAvailable:(BOOL)needPrompt
 {
     
     BOOL isExistenceNetwork = YES;
@@ -95,7 +95,7 @@
             break;
     }
     
-    if (!isExistenceNetwork) {
+    if (!isExistenceNetwork && needPrompt) {
 
         [[[UIAlertView alloc] initWithTitle:@"当前网络不可用,\n请检查网络连接!"
                                     message:@""

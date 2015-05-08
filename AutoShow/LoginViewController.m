@@ -186,12 +186,16 @@ typedef enum {
 - (void) loadCTCCResource
 {
     activityNameArray = @[@"2015长安福特CTCC赛车运动"];
-    cityNameArray = @[@"上海",
+    cityNameArray = @[@"广州",
+                      @"无锡",
+                      @"济南",
+                      @"哈尔滨",
+                      @"武汉",
+                      @"成都",
+                      @"上海",
                       @"肇庆",
-                      @"韩国",
                       @"珠海",
                       @"盐城",
-                      @"成都",
                       @"其他"];
 }
 

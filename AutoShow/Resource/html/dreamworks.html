@@ -307,7 +307,7 @@
         }
     }
     $("#qmobile").keyup(function(){ 
-        var qmobile = $("#qmobile").val();
+        var qmobile = $.trim($("#qmobile").val());
         var myreg = /^((13[0-9]{1})|(14[7]{1})|(15[0,1,2,3,5,6,7,8,9]{1})|(17[0,6,7,8]{1})|(18[0-9]{1}))+\d{8}$/;
         if (qmobile == '' || !myreg.test(qmobile)) {
             $("#aa").html('<i style="color:red; font-size:20px;">×</i>');
@@ -326,7 +326,7 @@
                 qgender = $(this).text();
             }
         })
-        var qmobile = $("#qmobile").val();
+        var qmobile = $.trim($("#qmobile").val());
        /* var aemail = $("#aemail").val();
         var bemail = $("#bemail").val();
         var qemail ='';
@@ -514,6 +514,7 @@
 		 if(!isChinaOrNumbOrLett($.trim(qname))){
 			 //alert("姓名只能输入中文，英文，字母，下划线！");
 			 window.location.href='showAlert://data?title=姓名只能输入中文，英文，字母，下划线！';
+                         $('.wrapper').animate({'scrollTop':'0'},500,function(){$("#qname").focus();});
 			 return false;
 		 }
 		if(q7_back.indexOf("其他")>=0) {

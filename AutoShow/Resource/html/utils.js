@@ -14,9 +14,10 @@
 */
 
 function isChinaOrNumbOrLett(s){
-    var regu = "^[0-9a-zA-Z\u4e00-\u9fa5\uFE30-\uFFA0\-_ ]+$";
+//    var regu = "^[0-9a-zA-Z\u4e00-\u9fa5\uFE30-\uFFA0\-_ ]+$";
+    var regu = '/^[a-zA-Z0-9_\u4e00-\u9fa5\" "]+$/';
     var re = new RegExp(regu);
-    if (re.test(s)) {
+    if (/^[a-zA-Z0-9_\u4e00-\u9fa5\" "]+$/.test(s)) {
         return true;
     }
     else {

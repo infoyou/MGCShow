@@ -201,7 +201,7 @@
                         </li>
                     </ul>
                 </div>
-       <!-- <input type="submit" value="提交" onclick="submitAnswer()"> -->
+        <!--<input type="submit" value="提交" onclick="submitAnswer()">--> 
             <div class="opiFooter">
                 <ul>
                     <li>感谢您的参与！</li>
@@ -238,7 +238,7 @@
         }
     }
     $("#qmobile").keyup(function(){ 
-        var qmobile = $("#qmobile").val();
+        var qmobile = $.trim($("#qmobile").val());
         var myreg = /^((13[0-9]{1})|(14[7]{1})|(15[0,1,2,3,5,6,7,8,9]{1})|(17[0,6,7,8]{1})|(18[0-9]{1}))+\d{8}$/;
         if (qmobile == '' || !myreg.test(qmobile)) {
             $("#aa").html('<i style="color:red; font-size:20px;">×</i>');
@@ -256,12 +256,12 @@
                 qgender = $(this).text();
             }
         })
-        var qmobile = $("#qmobile").val();
-        var aemail = $("#aemail").val();
-        var bemail = $("#bemail").val();
+        var qmobile = $.trim($("#qmobile").val());
+        var aemail = $.trim($("#aemail").val());
+        var bemail = $.trim($("#bemail").val());
         var qemail ='';
         if(aemail!='' || bemail!=''){
-            qemail = aemail+'@'+bemail;
+            qemail = $.trim(aemail+'@'+bemail);
             if(!IsEmail(qemail)){
                 window.location.href='showAlert://data?title=请正确填写邮箱！';
                 
@@ -370,7 +370,7 @@
        	 if(!isChinaOrNumbOrLett($.trim(qname))){
        		// alert("姓名只能输入中文，英文，字母，下划线！");
        		 window.location.href='showAlert://data?title=姓名只能输入中文，英文，字母，下划线！';
-			 $('.wrapper').animate({'scrollTop':'0'},500,function(){$("#qname").focus();});
+                $('.wrapper').animate({'scrollTop':'0'},500,function(){$("#qname").focus();});
                 return false;
             }
        

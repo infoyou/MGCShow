@@ -97,7 +97,7 @@
     //处理JavaScript和Objective-C交互
     if([[[url scheme] lowercaseString] isEqualToString:@"uploaddata"]) {
         
-        if (![self isConnectionAvailable]) {
+        if (![self isConnectionAvailable:YES]) {
             return NO;
         }
         
@@ -123,6 +123,8 @@
                 // 显示进度提示
                 currentUploadNum = 0;
                 errorUploadNum = 0;
+                
+                [self updateProgress];
                 
                 // 调用上传接口
                 for (int i = 0; i<needUploadNum; i++) {
@@ -219,7 +221,7 @@
     progressBGView.hidden = NO;
     progressLabel.hidden = NO;
     
-    progressLabel.text = [NSString stringWithFormat:@"上传数据%ld条, 已上传成功%ld条, 上传失败%ld条.", needUploadNum, currentUploadNum, errorUploadNum];
+    progressLabel.text = [NSString stringWithFormat:@"上传数据%ld条, 已上传成功%ld条, 上传失败%ld条.", (long)needUploadNum, (long)currentUploadNum, (long)errorUploadNum];
     
 }
 
@@ -264,7 +266,7 @@
     NSURL *myURL = [NSURL URLWithString:[requestedURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     //创建请求
-    NSURLRequest *myRuquest=[NSURLRequest requestWithURL:myURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60];
+    NSURLRequest *myRuquest = [NSURLRequest requestWithURL:myURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60];
     //建立连接（异步的response在专门的代理协议中实现）
     [NSURLConnection connectionWithRequest:myRuquest delegate:self];
     
@@ -273,7 +275,7 @@
 #pragma mark -
 #pragma mark - URLConnectionDataDelegate 异步加载数据需要下面几个方法常用的有四个方法
 //接受服务器响应－－接收到服务器回应的时候会执行该方法
--(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     
     DLog(@"服务器响应");
     
@@ -281,7 +283,7 @@
 }
 
 //接收服务器数据－－接收服务器传输数据的时候会调用，会根据数据量的大小，多次执行
--(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     DLog(@"服务器返回数据");
     
@@ -290,7 +292,7 @@
 }
 
 //显示数据，直到所有的数据接收完毕
--(void) connectionDidFinishLoading:(NSURLConnection *)connection
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
     DLog(@"数据接受完毕");
     NSString *backMsg = [[NSString alloc] initWithData:self.myData encoding:NSUTF8StringEncoding];
@@ -336,7 +338,7 @@
 }
 
 //接受失败的时候调用的方法（断网或者是连接超时）
--(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     
 //    [self hideProgressView];
