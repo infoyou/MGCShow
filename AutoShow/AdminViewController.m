@@ -644,7 +644,7 @@
 
 - (void)exportMGCDataCSV:(NSOutputStream *)output
 {
-    NSString *header = @"ID,项目活动编码,姓名,性别,手机,EMAIL,经销商省份,经销商城市,经销商名称,提交时间,活动名称,活动城市,录入,最感兴趣车型,还感兴趣车型,何时(再)购车,购车预算,您的年龄？,您已经拥有座驾了吗？,您的座驾是？,影响您再购因素有哪些？,何种渠道了解本次活动？,您对此次梦工厂的评价？,1-10分对长安福特品牌的印象？,isreceiving\n";
+    NSString *header = @"项目活动编码,姓名,性别,手机,EMAIL,经销商省份,经销商城市,经销商名称,提交时间,活动名称,活动城市,录入,最感兴趣车型,还感兴趣车型,何时(再)购车,购车预算,您的年龄？,您已经拥有座驾了吗？,您的座驾是？,影响您再购因素有哪些？,何种渠道了解本次活动？,您对此次梦工厂的评价？,1-10分对长安福特品牌的印象？,isreceiving\n";
     
     const uint8_t *headerString = (const uint8_t *)[header cStringUsingEncoding:NSUTF8StringEncoding];
     NSInteger headerLength = [header lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
@@ -665,10 +665,9 @@
             [params setObject:[elts objectAtIndex:1] forKey:[elts objectAtIndex:0]];
         }
         
-        // ID,项目活动编码,姓名,性别,手机,EMAIL,经销商省份,经销商城市,经销商名称,提交时间,活动名称,活动城市,录入,最感兴趣车型,还感兴趣车型,何时(再)购车,购车预算,您的年龄？,您已经拥有座驾了吗？,您的座驾是？,影响您再购因素有哪些？,何种渠道了解本次活动？,您对此次梦工厂的评价？,1-10分对长安福特品牌的印象？,isreceiving
+        // 项目活动编码,姓名,性别,手机,EMAIL,经销商省份,经销商城市,经销商名称,提交时间,活动名称,活动城市,录入,最感兴趣车型,还感兴趣车型,何时(再)购车,购车预算,您的年龄？,您已经拥有座驾了吗？,您的座驾是？,影响您再购因素有哪些？,何种渠道了解本次活动？,您对此次梦工厂的评价？,1-10分对长安福特品牌的印象？,isreceiving
         
-        NSString *row = [NSString stringWithFormat:@"%@,%@,%@,%@,%@, %@,%@,%@,%@,%@, %@,%@,%@,%@,%@, %@,%@,%@,%@,%@, %@,%@,%@,%@,%@\n",
-                         [params objectForKey:@"q_id"],
+        NSString *row = [NSString stringWithFormat:@"%@,%@,%@,%@, %@,%@,%@,%@,%@, %@,%@,%@,%@,%@, %@,%@,%@,%@,%@, %@,%@,%@,%@,%@\n",
                          PROJECT_CODE,
                          [params objectForKey:@"qname"],
                          [params objectForKey:@"qgender"],
