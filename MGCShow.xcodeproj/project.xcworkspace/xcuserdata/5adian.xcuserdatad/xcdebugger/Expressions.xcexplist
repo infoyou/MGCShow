@@ -11,6 +11,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[LoginViewController viewDidAppear:]:LoginViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "loginBtn">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[FMDBConnection getAvailableSurveyResult]:FMDBConnection.m">
          <PersistentStrings>
             <PersistentString

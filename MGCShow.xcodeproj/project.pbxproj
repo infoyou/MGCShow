@@ -121,10 +121,6 @@
 		08121EAF1AF782BD009412F9 /* CTCC-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08121EAD1AF782BD009412F9 /* CTCC-Info.plist */; };
 		08121EB01AF782BD009412F9 /* CTCC-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08121EAD1AF782BD009412F9 /* CTCC-Info.plist */; };
 		08121EB11AF782BD009412F9 /* CTCC-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08121EAD1AF782BD009412F9 /* CTCC-Info.plist */; };
-		08121F0C1AF782DB009412F9 /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 08121EB31AF782D9009412F9 /* admin.html */; };
-		08121F0D1AF782DB009412F9 /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 08121EB31AF782D9009412F9 /* admin.html */; };
-		08121F0E1AF782DB009412F9 /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 08121EB31AF782D9009412F9 /* admin.html */; };
-		08121F0F1AF782DB009412F9 /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 08121EB31AF782D9009412F9 /* admin.html */; };
 		08121F101AF782DB009412F9 /* arro01.png in Resources */ = {isa = PBXBuildFile; fileRef = 08121EB41AF782D9009412F9 /* arro01.png */; };
 		08121F111AF782DB009412F9 /* arro01.png in Resources */ = {isa = PBXBuildFile; fileRef = 08121EB41AF782D9009412F9 /* arro01.png */; };
 		08121F121AF782DB009412F9 /* arro01.png in Resources */ = {isa = PBXBuildFile; fileRef = 08121EB41AF782D9009412F9 /* arro01.png */; };
@@ -469,6 +465,11 @@
 		0812206D1AF782DB009412F9 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 08121F0B1AF782DB009412F9 /* yellow.png */; };
 		0812206E1AF782DB009412F9 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 08121F0B1AF782DB009412F9 /* yellow.png */; };
 		0812206F1AF782DB009412F9 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 08121F0B1AF782DB009412F9 /* yellow.png */; };
+		081DF5821B3006C300EEEA12 /* loginBgCTCC.png in Resources */ = {isa = PBXBuildFile; fileRef = 081DF5801B3006C300EEEA12 /* loginBgCTCC.png */; };
+		0855702C1B26957900DE5AEF /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 0855702B1B26957900DE5AEF /* admin.html */; };
+		0855702D1B26957900DE5AEF /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 0855702B1B26957900DE5AEF /* admin.html */; };
+		0855702E1B26957900DE5AEF /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 0855702B1B26957900DE5AEF /* admin.html */; };
+		0855702F1B26957900DE5AEF /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 0855702B1B26957900DE5AEF /* admin.html */; };
 		0869DF6C1AADBBFF006348AA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0869DF6A1AADBBFF006348AA /* LoginViewController.m */; };
 		0869DF6D1AADBBFF006348AA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0869DF6B1AADBBFF006348AA /* LoginViewController.xib */; };
 		0869DF721AADBD35006348AA /* loginBgMGC.png in Resources */ = {isa = PBXBuildFile; fileRef = 0869DF6F1AADBD35006348AA /* loginBgMGC.png */; };
@@ -480,10 +481,6 @@
 		088BBC9A1AC25850002B71CB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 088BBC991AC25850002B71CB /* Reachability.m */; };
 		088DDB201AB81464009A85D6 /* AdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 088DDB1E1AB81464009A85D6 /* AdminViewController.m */; };
 		088DDB211AB81464009A85D6 /* AdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088DDB1F1AB81464009A85D6 /* AdminViewController.xib */; };
-		0898F6D81AF85F0F003E7DA7 /* loginBgCTCC.png in Resources */ = {isa = PBXBuildFile; fileRef = 0898F6D61AF85F0F003E7DA7 /* loginBgCTCC.png */; };
-		0898F6D91AF85F0F003E7DA7 /* loginBgCTCC.png in Resources */ = {isa = PBXBuildFile; fileRef = 0898F6D61AF85F0F003E7DA7 /* loginBgCTCC.png */; };
-		0898F6DA1AF85F0F003E7DA7 /* loginBgCTCC.png in Resources */ = {isa = PBXBuildFile; fileRef = 0898F6D61AF85F0F003E7DA7 /* loginBgCTCC.png */; };
-		0898F6DB1AF85F0F003E7DA7 /* loginBgCTCC.png in Resources */ = {isa = PBXBuildFile; fileRef = 0898F6D61AF85F0F003E7DA7 /* loginBgCTCC.png */; };
 		0898F6DC1AF85F0F003E7DA7 /* loginBgDSFL.png in Resources */ = {isa = PBXBuildFile; fileRef = 0898F6D71AF85F0F003E7DA7 /* loginBgDSFL.png */; };
 		0898F6DD1AF85F0F003E7DA7 /* loginBgDSFL.png in Resources */ = {isa = PBXBuildFile; fileRef = 0898F6D71AF85F0F003E7DA7 /* loginBgDSFL.png */; };
 		0898F6DE1AF85F0F003E7DA7 /* loginBgDSFL.png in Resources */ = {isa = PBXBuildFile; fileRef = 0898F6D71AF85F0F003E7DA7 /* loginBgDSFL.png */; };
@@ -520,7 +517,6 @@
 		08121BF21AF770B7009412F9 /* DSFL-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DSFL-Info.plist"; sourceTree = "<group>"; };
 		08121EAB1AF78262009412F9 /* CTCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CTCC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08121EAD1AF782BD009412F9 /* CTCC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CTCC-Info.plist"; sourceTree = "<group>"; };
-		08121EB31AF782D9009412F9 /* admin.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = admin.html; sourceTree = "<group>"; };
 		08121EB41AF782D9009412F9 /* arro01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arro01.png; sourceTree = "<group>"; };
 		08121EB51AF782D9009412F9 /* arror.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arror.png; sourceTree = "<group>"; };
 		08121EB61AF782D9009412F9 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
@@ -607,6 +603,8 @@
 		08121F091AF782DB009412F9 /* topBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = topBg.jpg; sourceTree = "<group>"; };
 		08121F0A1AF782DB009412F9 /* utils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = utils.js; sourceTree = "<group>"; };
 		08121F0B1AF782DB009412F9 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		081DF5801B3006C300EEEA12 /* loginBgCTCC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBgCTCC.png; sourceTree = "<group>"; };
+		0855702B1B26957900DE5AEF /* admin.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = admin.html; sourceTree = "<group>"; };
 		0869DF691AADBBFF006348AA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		0869DF6A1AADBBFF006348AA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0869DF6B1AADBBFF006348AA /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -621,7 +619,6 @@
 		088DDB1D1AB81464009A85D6 /* AdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminViewController.h; sourceTree = "<group>"; };
 		088DDB1E1AB81464009A85D6 /* AdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminViewController.m; sourceTree = "<group>"; };
 		088DDB1F1AB81464009A85D6 /* AdminViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminViewController.xib; sourceTree = "<group>"; };
-		0898F6D61AF85F0F003E7DA7 /* loginBgCTCC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBgCTCC.png; sourceTree = "<group>"; };
 		0898F6D71AF85F0F003E7DA7 /* loginBgDSFL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBgDSFL.png; sourceTree = "<group>"; };
 		08A1B3D31ABFABF9007E9667 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		08A1B3D51ABFB57B007E9667 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -720,7 +717,7 @@
 		08121EB21AF782D9009412F9 /* html */ = {
 			isa = PBXGroup;
 			children = (
-				08121EB31AF782D9009412F9 /* admin.html */,
+				0855702B1B26957900DE5AEF /* admin.html */,
 				08121EB41AF782D9009412F9 /* arro01.png */,
 				08121EB51AF782D9009412F9 /* arror.png */,
 				08121EB61AF782D9009412F9 /* bg.jpg */,
@@ -814,9 +811,9 @@
 		0869DF6E1AADBD35006348AA /* image */ = {
 			isa = PBXGroup;
 			children = (
+				081DF5801B3006C300EEEA12 /* loginBgCTCC.png */,
 				080B292B1AFB6374001DA4E9 /* questionBottomBlack.png */,
 				080B292C1AFB6374001DA4E9 /* questionBottomBlue.png */,
-				0898F6D61AF85F0F003E7DA7 /* loginBgCTCC.png */,
 				0898F6D71AF85F0F003E7DA7 /* loginBgDSFL.png */,
 				08E414B31AB14BE100888429 /* icon.png */,
 				0869DF751AAEBFA8006348AA /* btnLoginSel.png */,
@@ -1081,7 +1078,6 @@
 				08121FFD1AF782DB009412F9 /* pcas.js in Resources */,
 				08121EAF1AF782BD009412F9 /* CTCC-Info.plist in Resources */,
 				080B29321AFB6374001DA4E9 /* questionBottomBlue.png in Resources */,
-				0898F6D91AF85F0F003E7DA7 /* loginBgCTCC.png in Resources */,
 				08121FB51AF782DB009412F9 /* dreamworks.html in Resources */,
 				081220511AF782DB009412F9 /* tit05.png in Resources */,
 				081220291AF782DB009412F9 /* tit02.png in Resources */,
@@ -1109,12 +1105,12 @@
 				081218EA1AF75C37009412F9 /* LoginViewController.xib in Resources */,
 				081220091AF782DB009412F9 /* select.png in Resources */,
 				08121FED1AF782DB009412F9 /* index.html in Resources */,
-				08121F0D1AF782DB009412F9 /* admin.html in Resources */,
 				08121FC51AF782DB009412F9 /* drmcurr.png in Resources */,
 				081218F21AF75C37009412F9 /* loginBgMGC.png in Resources */,
 				08121F811AF782DB009412F9 /* clickqi.png in Resources */,
 				08121F351AF782DB009412F9 /* bgtopp.png in Resources */,
 				081218F91AF75C37009412F9 /* AdminViewController.xib in Resources */,
+				0855702D1B26957900DE5AEF /* admin.html in Resources */,
 				08121F2D1AF782DB009412F9 /* bgtop.jpg in Resources */,
 				08121FD91AF782DB009412F9 /* erwm05.png in Resources */,
 				08121F191AF782DB009412F9 /* bg.jpg in Resources */,
@@ -1193,7 +1189,6 @@
 				08121FFE1AF782DB009412F9 /* pcas.js in Resources */,
 				08121EB01AF782BD009412F9 /* CTCC-Info.plist in Resources */,
 				080B29331AFB6374001DA4E9 /* questionBottomBlue.png in Resources */,
-				0898F6DA1AF85F0F003E7DA7 /* loginBgCTCC.png in Resources */,
 				08121FB61AF782DB009412F9 /* dreamworks.html in Resources */,
 				081220521AF782DB009412F9 /* tit05.png in Resources */,
 				0812202A1AF782DB009412F9 /* tit02.png in Resources */,
@@ -1221,12 +1216,12 @@
 				08121AAA1AF76082009412F9 /* LoginViewController.xib in Resources */,
 				0812200A1AF782DB009412F9 /* select.png in Resources */,
 				08121FEE1AF782DB009412F9 /* index.html in Resources */,
-				08121F0E1AF782DB009412F9 /* admin.html in Resources */,
 				08121FC61AF782DB009412F9 /* drmcurr.png in Resources */,
 				08121AB21AF76082009412F9 /* loginBgMGC.png in Resources */,
 				08121F821AF782DB009412F9 /* clickqi.png in Resources */,
 				08121F361AF782DB009412F9 /* bgtopp.png in Resources */,
 				08121AB91AF76082009412F9 /* AdminViewController.xib in Resources */,
+				0855702E1B26957900DE5AEF /* admin.html in Resources */,
 				08121F2E1AF782DB009412F9 /* bgtop.jpg in Resources */,
 				08121FDA1AF782DB009412F9 /* erwm05.png in Resources */,
 				08121F1A1AF782DB009412F9 /* bg.jpg in Resources */,
@@ -1305,7 +1300,6 @@
 				08121FFF1AF782DB009412F9 /* pcas.js in Resources */,
 				08121EB11AF782BD009412F9 /* CTCC-Info.plist in Resources */,
 				080B29341AFB6374001DA4E9 /* questionBottomBlue.png in Resources */,
-				0898F6DB1AF85F0F003E7DA7 /* loginBgCTCC.png in Resources */,
 				08121FB71AF782DB009412F9 /* dreamworks.html in Resources */,
 				081220531AF782DB009412F9 /* tit05.png in Resources */,
 				0812202B1AF782DB009412F9 /* tit02.png in Resources */,
@@ -1321,6 +1315,7 @@
 				0812203F1AF782DB009412F9 /* tit02_08.png in Resources */,
 				08121E5F1AF78262009412F9 /* btnResetSel.png in Resources */,
 				08121FDF1AF782DB009412F9 /* erwm06.png in Resources */,
+				081DF5821B3006C300EEEA12 /* loginBgCTCC.png in Resources */,
 				081220671AF782DB009412F9 /* topBg.jpg in Resources */,
 				081220071AF782DB009412F9 /* selecBg.png in Resources */,
 				08121FC31AF782DB009412F9 /* drmcur.png in Resources */,
@@ -1333,12 +1328,12 @@
 				08121E671AF78262009412F9 /* LoginViewController.xib in Resources */,
 				0812200B1AF782DB009412F9 /* select.png in Resources */,
 				08121FEF1AF782DB009412F9 /* index.html in Resources */,
-				08121F0F1AF782DB009412F9 /* admin.html in Resources */,
 				08121FC71AF782DB009412F9 /* drmcurr.png in Resources */,
 				08121E681AF78262009412F9 /* loginBgMGC.png in Resources */,
 				08121F831AF782DB009412F9 /* clickqi.png in Resources */,
 				08121F371AF782DB009412F9 /* bgtopp.png in Resources */,
 				08121E781AF78262009412F9 /* AdminViewController.xib in Resources */,
+				0855702F1B26957900DE5AEF /* admin.html in Resources */,
 				08121F2F1AF782DB009412F9 /* bgtop.jpg in Resources */,
 				08121FDB1AF782DB009412F9 /* erwm05.png in Resources */,
 				08121F1B1AF782DB009412F9 /* bg.jpg in Resources */,
@@ -1417,7 +1412,6 @@
 				08121FFC1AF782DB009412F9 /* pcas.js in Resources */,
 				08121EAE1AF782BD009412F9 /* CTCC-Info.plist in Resources */,
 				080B29311AFB6374001DA4E9 /* questionBottomBlue.png in Resources */,
-				0898F6D81AF85F0F003E7DA7 /* loginBgCTCC.png in Resources */,
 				08121FB41AF782DB009412F9 /* dreamworks.html in Resources */,
 				081220501AF782DB009412F9 /* tit05.png in Resources */,
 				081220281AF782DB009412F9 /* tit02.png in Resources */,
@@ -1445,12 +1439,12 @@
 				0869DF6D1AADBBFF006348AA /* LoginViewController.xib in Resources */,
 				081220081AF782DB009412F9 /* select.png in Resources */,
 				08121FEC1AF782DB009412F9 /* index.html in Resources */,
-				08121F0C1AF782DB009412F9 /* admin.html in Resources */,
 				08121FC41AF782DB009412F9 /* drmcurr.png in Resources */,
 				0869DF721AADBD35006348AA /* loginBgMGC.png in Resources */,
 				08121F801AF782DB009412F9 /* clickqi.png in Resources */,
 				08121F341AF782DB009412F9 /* bgtopp.png in Resources */,
 				088DDB211AB81464009A85D6 /* AdminViewController.xib in Resources */,
+				0855702C1B26957900DE5AEF /* admin.html in Resources */,
 				08121F2C1AF782DB009412F9 /* bgtop.jpg in Resources */,
 				08121FD81AF782DB009412F9 /* erwm05.png in Resources */,
 				08121F181AF782DB009412F9 /* bg.jpg in Resources */,

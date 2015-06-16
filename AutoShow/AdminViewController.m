@@ -396,6 +396,14 @@
           ] show];
     } else {
         
+        char BOM[] = {0xEF, 0xBB, 0xBF};
+        NSMutableData* data = [NSMutableData data];
+        [data appendBytes:BOM length:3];
+        
+//        NSString *response  = @"\357\273\277";
+//        NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+        [output write:[data bytes] maxLength:3];
+        
         [self exportDataCSV:output];
     }
 }
@@ -644,10 +652,14 @@
 
 - (void)exportMGCDataCSV:(NSOutputStream *)output
 {
+    // Excel 打开为乱码
+    //    EF BB BF    UTF-8
+//    NSString *header = [[NSString alloc] initWithFormat:@"\357\273\277%@", @"项目活动编码,姓名,性别,手机,EMAIL,经销商省份,经销商城市,经销商名称,提交时间,活动名称,活动城市,录入,最感兴趣车型,还感兴趣车型,何时(再)购车,购车预算,您的年龄？,您已经拥有座驾了吗？,您的座驾是？,影响您再购因素有哪些？,何种渠道了解本次活动？,您对此次梦工厂的评价？,1-10分对长安福特品牌的印象？,isreceiving\n"];
     NSString *header = @"项目活动编码,姓名,性别,手机,EMAIL,经销商省份,经销商城市,经销商名称,提交时间,活动名称,活动城市,录入,最感兴趣车型,还感兴趣车型,何时(再)购车,购车预算,您的年龄？,您已经拥有座驾了吗？,您的座驾是？,影响您再购因素有哪些？,何种渠道了解本次活动？,您对此次梦工厂的评价？,1-10分对长安福特品牌的印象？,isreceiving\n";
     
-    const uint8_t *headerString = (const uint8_t *)[header cStringUsingEncoding:NSUTF8StringEncoding];
-    NSInteger headerLength = [header lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+    const uint8_t *headerString = (const uint8_t *)[header cStringUsingEncoding:/*NSUTF8StringEncoding*/NSUTF8StringEncoding];
+    NSInteger headerLength = [header lengthOfBytesUsingEncoding:/*NSUTF8StringEncoding*/NSUTF8StringEncoding];
+    
     NSInteger result = [output write:headerString maxLength:headerLength];
     if (result <= 0) {
         DLog(@"写入错误");
@@ -660,6 +672,7 @@
         
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         for (NSString *param in [dataArray[i] componentsSeparatedByString:@"&"]) {
+            
             NSArray *elts = [param componentsSeparatedByString:@"="];
             if([elts count] < 2) continue;
             [params setObject:[elts objectAtIndex:1] forKey:[elts objectAtIndex:0]];
@@ -696,8 +709,8 @@
         
         NSString *transRow = [row stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
         
-        const uint8_t *rowString = (const uint8_t *)[transRow cStringUsingEncoding:NSUTF8StringEncoding];
-        NSInteger rowLength = [transRow lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+        const uint8_t *rowString = (const uint8_t *)[transRow cStringUsingEncoding:/*NSUTF8StringEncoding*/NSUTF8StringEncoding];
+        NSInteger rowLength = [transRow lengthOfBytesUsingEncoding:/*NSUTF8StringEncoding*/NSUTF8StringEncoding];
         result = [output write:rowString maxLength:rowLength];
         
         if (result <= 0) {

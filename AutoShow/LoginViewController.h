@@ -23,5 +23,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *activityTxt;
 @property (weak, nonatomic) IBOutlet UITextField *cityTxt;
 
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (weak, nonatomic) IBOutlet UIButton *resetBtn;
+
 @end
 

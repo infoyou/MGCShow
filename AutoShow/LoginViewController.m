@@ -33,6 +33,9 @@ typedef enum {
 @synthesize pswdTxt;
 @synthesize cityTxt;
 
+@synthesize loginBtn;
+@synthesize resetBtn;
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -50,6 +53,12 @@ typedef enum {
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -59,6 +68,25 @@ typedef enum {
     pickerBGView.hidden = YES;
     activityPicker.hidden = YES;
     cityPicker.hidden = YES;
+
+#if CarShowType == 13
+    // CTCC
+    NSUInteger offsetY = 90;
+    nameTxt.frame = CGRectOffset(nameTxt.frame, 0, offsetY);
+    pswdTxt.frame = CGRectOffset(pswdTxt.frame, 0, offsetY);
+    cityTxt.frame = CGRectOffset(cityTxt.frame, 0, offsetY);
+    activityTxt.frame = CGRectOffset(activityTxt.frame, 0, offsetY);
+    loginBtn.frame = CGRectOffset(loginBtn.frame, 2, offsetY-3);
+    resetBtn.frame = CGRectOffset(resetBtn.frame, -12, offsetY-3);
+    
+    [loginBtn setImage:[UIImage imageNamed:@"btnLoginSel.png"] forState:UIControlStateNormal];
+    [loginBtn setImage:[UIImage imageNamed:@"btnLogin.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
+    
+    [resetBtn setImage:[UIImage imageNamed:@"btnResetSel.png"] forState:UIControlStateNormal];
+    [resetBtn setImage:[UIImage imageNamed:@"btnReset.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
+    
+#endif
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -242,7 +270,10 @@ typedef enum {
 - (void) loadMGCResource
 {
     activityNameArray = @[@"2015长安福特汽车梦工场"];
-    cityNameArray = @[@"昆山",
+    cityNameArray = @[@"滨州",
+                      @"佳木斯市",
+                      @"嘉兴",
+                      @"昆山",
                       @"安康",
                       @"安宁",
                       @"安顺",
