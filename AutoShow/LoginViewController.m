@@ -84,6 +84,23 @@ typedef enum {
     
     [resetBtn setImage:[UIImage imageNamed:@"btnResetSel.png"] forState:UIControlStateNormal];
     [resetBtn setImage:[UIImage imageNamed:@"btnReset.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
+
+    
+#elif CarShowType == 11
+    // 品牌体验馆
+    NSUInteger offsetY = 15;
+    nameTxt.frame = CGRectOffset(nameTxt.frame, 0, offsetY);
+    pswdTxt.frame = CGRectOffset(pswdTxt.frame, 0, offsetY);
+    cityTxt.frame = CGRectOffset(cityTxt.frame, 0, offsetY);
+    activityTxt.frame = CGRectOffset(activityTxt.frame, 0, offsetY);
+    loginBtn.frame = CGRectOffset(loginBtn.frame, 6, offsetY-3);
+    resetBtn.frame = CGRectOffset(resetBtn.frame, -8, offsetY-3);
+    
+    [loginBtn setImage:[UIImage imageNamed:@"btnLoginSel.png"] forState:UIControlStateNormal];
+    [loginBtn setImage:[UIImage imageNamed:@"btnLogin.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
+    
+    [resetBtn setImage:[UIImage imageNamed:@"btnResetSel.png"] forState:UIControlStateNormal];
+    [resetBtn setImage:[UIImage imageNamed:@"btnReset.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
     
 #endif
 
@@ -195,7 +212,7 @@ typedef enum {
 #elif CarShowType == 11
     // 品牌体验馆
     [self loadBrandCarResource];
-    self.loginBG.image = [UIImage imageNamed:@"loginBgMGC.png"];
+    self.loginBG.image = [UIImage imageNamed:@"loginBgBrand.png"];
     
 #elif CarShowType == 12
     // 梦工场
@@ -270,7 +287,11 @@ typedef enum {
 - (void) loadMGCResource
 {
     activityNameArray = @[@"2015长安福特汽车梦工场"];
-    cityNameArray = @[@"滨州",
+    cityNameArray = @[@"贵港",
+                      @"东营",
+                      @"丹阳",
+                      @"吉林",
+                      @"滨州",
                       @"佳木斯市",
                       @"嘉兴",
                       @"昆山",

@@ -470,6 +470,7 @@
 		0855702D1B26957900DE5AEF /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 0855702B1B26957900DE5AEF /* admin.html */; };
 		0855702E1B26957900DE5AEF /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 0855702B1B26957900DE5AEF /* admin.html */; };
 		0855702F1B26957900DE5AEF /* admin.html in Resources */ = {isa = PBXBuildFile; fileRef = 0855702B1B26957900DE5AEF /* admin.html */; };
+		0867B1E51B3291750041775C /* loginBgBrand.png in Resources */ = {isa = PBXBuildFile; fileRef = 0867B1E41B3291750041775C /* loginBgBrand.png */; };
 		0869DF6C1AADBBFF006348AA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0869DF6A1AADBBFF006348AA /* LoginViewController.m */; };
 		0869DF6D1AADBBFF006348AA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0869DF6B1AADBBFF006348AA /* LoginViewController.xib */; };
 		0869DF721AADBD35006348AA /* loginBgMGC.png in Resources */ = {isa = PBXBuildFile; fileRef = 0869DF6F1AADBD35006348AA /* loginBgMGC.png */; };
@@ -605,6 +606,7 @@
 		08121F0B1AF782DB009412F9 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		081DF5801B3006C300EEEA12 /* loginBgCTCC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBgCTCC.png; sourceTree = "<group>"; };
 		0855702B1B26957900DE5AEF /* admin.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = admin.html; sourceTree = "<group>"; };
+		0867B1E41B3291750041775C /* loginBgBrand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBgBrand.png; sourceTree = "<group>"; };
 		0869DF691AADBBFF006348AA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		0869DF6A1AADBBFF006348AA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0869DF6B1AADBBFF006348AA /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -811,6 +813,7 @@
 		0869DF6E1AADBD35006348AA /* image */ = {
 			isa = PBXGroup;
 			children = (
+				0867B1E41B3291750041775C /* loginBgBrand.png */,
 				081DF5801B3006C300EEEA12 /* loginBgCTCC.png */,
 				080B292B1AFB6374001DA4E9 /* questionBottomBlack.png */,
 				080B292C1AFB6374001DA4E9 /* questionBottomBlue.png */,
@@ -1219,6 +1222,7 @@
 				08121FC61AF782DB009412F9 /* drmcurr.png in Resources */,
 				08121AB21AF76082009412F9 /* loginBgMGC.png in Resources */,
 				08121F821AF782DB009412F9 /* clickqi.png in Resources */,
+				0867B1E51B3291750041775C /* loginBgBrand.png in Resources */,
 				08121F361AF782DB009412F9 /* bgtopp.png in Resources */,
 				08121AB91AF76082009412F9 /* AdminViewController.xib in Resources */,
 				0855702E1B26957900DE5AEF /* admin.html in Resources */,
